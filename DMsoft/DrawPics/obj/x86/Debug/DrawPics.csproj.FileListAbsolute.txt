@@ -16,3 +16,5 @@ D:\Projects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.MyDraw.resources
 D:\Projects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.Properties.Resources.resources
 D:\Projects\DMsoft\DrawPics\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Projects\DMsoft\DrawPics\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\DMprojects\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.exe
+D:\DMprojects\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.pdb
