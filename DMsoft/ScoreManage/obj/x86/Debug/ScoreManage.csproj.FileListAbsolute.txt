@@ -1,0 +1,7 @@
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\bin\Debug\ScoreManage.exe
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\bin\Debug\ScoreManage.pdb
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\obj\x86\Debug\ScoreManage.defaultFrom.resources
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\obj\x86\Debug\ScoreManage.Properties.Resources.resources
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\obj\x86\Debug\ScoreManage.csproj.GenerateResource.Cache
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\obj\x86\Debug\ScoreManage.exe
+D:\DMprojects\DMprojects\DMsoft\ScoreManage\obj\x86\Debug\ScoreManage.pdb
