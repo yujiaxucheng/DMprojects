@@ -60,10 +60,10 @@ namespace DrawPics
 
             this.R1 = Convert.ToSingle(this.tbR1.Text);
 
-            pArc.X = Convert.ToSingle(this.tbArcX.Text);
-            pArc.Y = Convert.ToSingle(this.tbArcY.Text);
-            this.sa = Convert.ToSingle(this.tbS.Text);
-            this.swa = Convert.ToSingle(this.tbSw.Text);
+            //pArc.X = Convert.ToSingle(this.tbArcX.Text);
+            //pArc.Y = Convert.ToSingle(this.tbArcY.Text);
+            //this.sa = Convert.ToSingle(this.tbS.Text);
+            //this.swa = Convert.ToSingle(this.tbSw.Text);
 
             this.tDraw.Enabled = true;
         }
@@ -106,11 +106,10 @@ namespace DrawPics
             this.tbD2.Text = "200";
             this.tba2.Text = "90";
 
-            this.tbR1.Text = "94";
-            this.tbArcX.Text = "-298";
-            this.tbArcY.Text = "25";
-            this.tbS.Text = "90";
-            this.tbSw.Text = "-45";
+            pArc.X = -298;
+            pArc.Y = 25;
+            sa = 90;
+            swa = -60;
         }
 
         /// <summary>
