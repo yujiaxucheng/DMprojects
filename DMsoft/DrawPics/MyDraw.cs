@@ -74,9 +74,11 @@ namespace DrawPics
             Pen p = new Pen(Color.Blue, 0.5f);
 
             DrawCoor(pbMain.CreateGraphics(), p);
+
             fPos = DrawDrill(pbMain.CreateGraphics(), p, D1, D2, L1, a1, 0f);
             fPos = DrawDrill(pbMain.CreateGraphics(), p, D2, D2 + 100f, L1, a2, fPos);
             DrawArc(pbMain.CreateGraphics(), p, pArc, R1, sa, swa);
+
             this.tDraw.Enabled = false;
         }
 
@@ -93,7 +95,7 @@ namespace DrawPics
             this.tbM11.Text = "1";
             this.tbM12.Text = "0";
             this.tbM21.Text = "0";
-            this.tbM22.Text = "1";
+            this.tbM22.Text = "-1";
 
             this.tbL1.Text = "150";
             this.tbD1.Text = "0";
@@ -103,10 +105,10 @@ namespace DrawPics
             this.tba2.Text = "90";
 
             this.tbR1.Text = "100";
-            this.tbArcX.Text = "100";
-            this.tbArcY.Text = "100";
-            this.tbS.Text = "270";
-            this.tbSw.Text = "45";
+            this.tbArcX.Text = "-298";
+            this.tbArcY.Text = "25";
+            this.tbS.Text = "90";
+            this.tbSw.Text = "-45";
         }
 
         /// <summary>
@@ -161,6 +163,10 @@ namespace DrawPics
             g.DrawLine(p, p2.X, p2.Y, p4.X, p4.Y);
             g.DrawLine(p, p6.X, p6.Y, p4.X, p4.Y);
 
+            g.DrawLine(p, p1.X, p1.Y, p2.X, p2.Y);
+            g.DrawLine(p, p3.X, p3.Y, p4.X, p4.Y);
+            g.DrawLine(p, p5.X, p5.Y, p6.X, p6.Y);
+
             this.lPointInfo.Text = "";
             PrintPoint(this.lPointInfo, p0, "p0");
             PrintPoint(this.lPointInfo, p1, "p1");
@@ -180,6 +186,72 @@ namespace DrawPics
             #endregion
 
             fPos = p5.X;
+            return fPos;
+        }
+
+        /// <summary>
+        /// 绘制带R角钻头
+        /// </summary>
+        /// <param name="g">画布</param>
+        /// <param name="p">画笔</param>
+        /// <param name="D1">小端直径</param>
+        /// <param name="D2">大端直径</param>
+        /// <param name="L1">圆柱部分长度</param>
+        /// <param name="L2">圆柱部分长度</param>
+        /// <param name="a">钻尖锥角</param>
+        /// <param name="R1">R1角</param>
+        /// <param name="R2">R2角</param>
+        /// <param name="fPos">起始位置</param>
+        /// <returns>终点位置</returns>
+        private float DrawDrill(Graphics g, Pen p, double D1, double D2, double L1, double L2, double a, double R1, double R2, float fPos)
+        {
+            Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;            // 钻头图形上点
+            Point p_t1, p_t2, p_t3, p_t4;                                       // 辅助点位置
+
+            g.Transform = new Matrix(m11, m12, m21, m22, p0.X, p0.Y);           // 设置矩阵
+            p.Color = Color.Blue;                                               // 线颜色
+            p.DashStyle = DashStyle.Solid;                                      // 线型
+
+            // 计算点
+            p1.X = p2.X = fPos; ;
+            p1.Y = +(float)(0.5 * D1);
+            p2.Y = -(float)(0.5 * D1);
+
+            p_t1.X = p_t2.X = fPos - (float)L1; ;
+            p_t1.Y = +(float)(0.5 * D1);
+            p_t2.Y = -(float)(0.5 * D1);
+
+            p3.X = p4.X = p_t1.X + (float)(R1 * Tan(0.25 * a));
+            p3.Y = +(float)(0.5 * D1);
+            p4.Y = -(float)(0.5 * D1);
+
+            p5.X = p6.X = p3.X - (float)(2d * R1 * Sin(0.25 * a) * Cos(0.25 * a));
+            p5.Y = p3.Y + (float)(2d * R1 * Sin(0.25 * a) * Sin(0.25 * a));
+            p6.Y = p4.Y - (float)(2d * R1 * Sin(0.25 * a) * Sin(0.25 * a));
+
+            p_t3.X = p_t4.X = p_t1.X - (float)(0.5 * (D2 - D1) / Tan(0.5 * a));
+            p_t3.Y = +(float)(0.5 * D2);
+            p_t4.Y = -(float)(0.5 * D2);
+
+
+
+
+
+            //g.DrawLine(p, p1.X, p1.Y, p3.X, p3.Y);
+            //g.DrawLine(p, p5.X, p5.Y, p7.X, p7.Y);
+            //g.DrawLine(p, p9.X, p9.Y, p11.X, p11.Y);
+            //g.DrawLine(p, p2.X, p2.Y, p4.X, p4.Y);
+            //g.DrawLine(p, p6.X, p6.Y, p8.X, p8.Y);
+            //g.DrawLine(p, p10.X, p10.Y, p12.X, p12.Y);
+
+            //g.DrawLine(p, p1.X, p1.Y, p2.X, p2.Y);
+            //g.DrawLine(p, p3.X, p3.Y, p4.X, p4.Y);
+            //g.DrawLine(p, p5.X, p5.Y, p6.X, p6.Y);
+            //g.DrawLine(p, p7.X, p7.Y, p8.X, p8.Y);
+            //g.DrawLine(p, p9.X, p9.Y, p10.X, p10.Y);
+            //g.DrawLine(p, p11.X, p11.Y, p12.X, p12.Y);
+
+            //fPos = p5.X;
             return fPos;
         }
 
