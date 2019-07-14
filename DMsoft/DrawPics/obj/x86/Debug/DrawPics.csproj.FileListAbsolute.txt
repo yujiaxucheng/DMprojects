@@ -32,3 +32,11 @@ C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.Properties.R
 C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csproj.GenerateResource.Cache
 C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\bin\Debug\DrawPics.exe
 C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\bin\Debug\DrawPics.pdb
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.exe
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.pdb
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\bin\Debug\DrawPics.exe
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\bin\Debug\DrawPics.pdb
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csprojResolveAssemblyReference.cache
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.MyDraw.resources
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.Properties.Resources.resources
+D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csproj.GenerateResource.Cache

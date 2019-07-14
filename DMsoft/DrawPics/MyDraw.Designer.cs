@@ -50,15 +50,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbBasic = new System.Windows.Forms.GroupBox();
+            this.tbD2 = new System.Windows.Forms.TextBox();
+            this.tbR1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tba2 = new System.Windows.Forms.TextBox();
+            this.tbL2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbL2 = new System.Windows.Forms.TextBox();
-            this.tba2 = new System.Windows.Forms.TextBox();
-            this.tbD2 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbR1 = new System.Windows.Forms.TextBox();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
+            this.C1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.锥度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.圆角1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.圆角2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             this.gbBasic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
@@ -88,7 +93,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 16);
+            this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "原点绝对坐标";
             // 
@@ -97,7 +102,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "X";
             // 
@@ -106,7 +111,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 16);
+            this.label3.Size = new System.Drawing.Size(19, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Y";
             // 
@@ -115,7 +120,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(163, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "矩阵";
             // 
@@ -123,42 +128,42 @@
             // 
             this.tbX.Location = new System.Drawing.Point(51, 51);
             this.tbX.Name = "tbX";
-            this.tbX.Size = new System.Drawing.Size(100, 26);
+            this.tbX.Size = new System.Drawing.Size(100, 30);
             this.tbX.TabIndex = 1;
             // 
             // tbY
             // 
             this.tbY.Location = new System.Drawing.Point(51, 94);
             this.tbY.Name = "tbY";
-            this.tbY.Size = new System.Drawing.Size(100, 26);
+            this.tbY.Size = new System.Drawing.Size(100, 30);
             this.tbY.TabIndex = 2;
             // 
             // tbM11
             // 
             this.tbM11.Location = new System.Drawing.Point(157, 53);
             this.tbM11.Name = "tbM11";
-            this.tbM11.Size = new System.Drawing.Size(100, 26);
+            this.tbM11.Size = new System.Drawing.Size(100, 30);
             this.tbM11.TabIndex = 3;
             // 
             // tbM12
             // 
             this.tbM12.Location = new System.Drawing.Point(263, 53);
             this.tbM12.Name = "tbM12";
-            this.tbM12.Size = new System.Drawing.Size(100, 26);
+            this.tbM12.Size = new System.Drawing.Size(100, 30);
             this.tbM12.TabIndex = 4;
             // 
             // tbM22
             // 
             this.tbM22.Location = new System.Drawing.Point(263, 96);
             this.tbM22.Name = "tbM22";
-            this.tbM22.Size = new System.Drawing.Size(100, 26);
+            this.tbM22.Size = new System.Drawing.Size(100, 30);
             this.tbM22.TabIndex = 6;
             // 
             // tbM21
             // 
             this.tbM21.Location = new System.Drawing.Point(157, 96);
             this.tbM21.Name = "tbM21";
-            this.tbM21.Size = new System.Drawing.Size(100, 26);
+            this.tbM21.Size = new System.Drawing.Size(100, 30);
             this.tbM21.TabIndex = 5;
             // 
             // tDraw
@@ -170,7 +175,7 @@
             this.lPointInfo.AutoSize = true;
             this.lPointInfo.Location = new System.Drawing.Point(996, 99);
             this.lPointInfo.Name = "lPointInfo";
-            this.lPointInfo.Size = new System.Drawing.Size(72, 16);
+            this.lPointInfo.Size = new System.Drawing.Size(89, 20);
             this.lPointInfo.TabIndex = 6;
             this.lPointInfo.Text = "点坐标：";
             // 
@@ -178,21 +183,21 @@
             // 
             this.tbL1.Location = new System.Drawing.Point(51, 140);
             this.tbL1.Name = "tbL1";
-            this.tbL1.Size = new System.Drawing.Size(100, 26);
+            this.tbL1.Size = new System.Drawing.Size(100, 30);
             this.tbL1.TabIndex = 7;
             // 
             // tba1
             // 
             this.tba1.Location = new System.Drawing.Point(51, 212);
             this.tba1.Name = "tba1";
-            this.tba1.Size = new System.Drawing.Size(100, 26);
+            this.tba1.Size = new System.Drawing.Size(100, 30);
             this.tba1.TabIndex = 9;
             // 
             // tbD1
             // 
             this.tbD1.Location = new System.Drawing.Point(51, 176);
             this.tbD1.Name = "tbD1";
-            this.tbD1.Size = new System.Drawing.Size(100, 26);
+            this.tbD1.Size = new System.Drawing.Size(100, 30);
             this.tbD1.TabIndex = 8;
             // 
             // label5
@@ -200,7 +205,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(20, 181);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 16);
+            this.label5.Size = new System.Drawing.Size(29, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "D1";
             // 
@@ -209,7 +214,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(20, 145);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 16);
+            this.label6.Size = new System.Drawing.Size(29, 20);
             this.label6.TabIndex = 3;
             this.label6.Text = "L1";
             // 
@@ -218,7 +223,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(20, 217);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 16);
+            this.label7.Size = new System.Drawing.Size(29, 20);
             this.label7.TabIndex = 4;
             this.label7.Text = "a1";
             // 
@@ -255,12 +260,58 @@
             this.gbBasic.TabStop = false;
             this.gbBasic.Text = "画布基本参数";
             // 
+            // tbD2
+            // 
+            this.tbD2.Location = new System.Drawing.Point(200, 161);
+            this.tbD2.Name = "tbD2";
+            this.tbD2.Size = new System.Drawing.Size(100, 30);
+            this.tbD2.TabIndex = 11;
+            // 
+            // tbR1
+            // 
+            this.tbR1.Location = new System.Drawing.Point(200, 213);
+            this.tbR1.Name = "tbR1";
+            this.tbR1.Size = new System.Drawing.Size(100, 30);
+            this.tbR1.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(169, 218);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 20);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "R1";
+            // 
+            // tba2
+            // 
+            this.tba2.Location = new System.Drawing.Point(200, 187);
+            this.tba2.Name = "tba2";
+            this.tba2.Size = new System.Drawing.Size(100, 30);
+            this.tba2.TabIndex = 12;
+            // 
+            // tbL2
+            // 
+            this.tbL2.Location = new System.Drawing.Point(200, 135);
+            this.tbL2.Name = "tbL2";
+            this.tbL2.Size = new System.Drawing.Size(100, 30);
+            this.tbL2.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(169, 192);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 20);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "a2";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(169, 166);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 16);
+            this.label8.Size = new System.Drawing.Size(29, 20);
             this.label8.TabIndex = 2;
             this.label8.Text = "D2";
             // 
@@ -269,68 +320,61 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(169, 140);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 16);
+            this.label9.Size = new System.Drawing.Size(29, 20);
             this.label9.TabIndex = 3;
             this.label9.Text = "L2";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(169, 192);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 16);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "a2";
-            // 
-            // tbL2
-            // 
-            this.tbL2.Location = new System.Drawing.Point(200, 135);
-            this.tbL2.Name = "tbL2";
-            this.tbL2.Size = new System.Drawing.Size(100, 26);
-            this.tbL2.TabIndex = 10;
-            // 
-            // tba2
-            // 
-            this.tba2.Location = new System.Drawing.Point(200, 187);
-            this.tba2.Name = "tba2";
-            this.tba2.Size = new System.Drawing.Size(100, 26);
-            this.tba2.TabIndex = 12;
-            // 
-            // tbD2
-            // 
-            this.tbD2.Location = new System.Drawing.Point(200, 161);
-            this.tbD2.Name = "tbD2";
-            this.tbD2.Size = new System.Drawing.Size(100, 26);
-            this.tbD2.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(169, 218);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 16);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "R1";
-            // 
-            // tbR1
-            // 
-            this.tbR1.Location = new System.Drawing.Point(200, 213);
-            this.tbR1.Name = "tbR1";
-            this.tbR1.Size = new System.Drawing.Size(100, 26);
-            this.tbR1.TabIndex = 12;
-            // 
             // dgvGrid
             // 
+            this.dgvGrid.AllowUserToAddRows = false;
+            this.dgvGrid.AllowUserToDeleteRows = false;
             this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.C1,
+            this.C2,
+            this.锥度,
+            this.圆角1,
+            this.圆角2});
             this.dgvGrid.Location = new System.Drawing.Point(417, 23);
             this.dgvGrid.Name = "dgvGrid";
+            this.dgvGrid.ReadOnly = true;
             this.dgvGrid.RowTemplate.Height = 23;
             this.dgvGrid.Size = new System.Drawing.Size(549, 266);
             this.dgvGrid.TabIndex = 14;
             // 
+            // C1
+            // 
+            this.C1.HeaderText = "直径";
+            this.C1.Name = "C1";
+            this.C1.ReadOnly = true;
+            // 
+            // C2
+            // 
+            this.C2.HeaderText = "长度";
+            this.C2.Name = "C2";
+            this.C2.ReadOnly = true;
+            // 
+            // 锥度
+            // 
+            this.锥度.HeaderText = "C3";
+            this.锥度.Name = "锥度";
+            this.锥度.ReadOnly = true;
+            // 
+            // 圆角1
+            // 
+            this.圆角1.HeaderText = "C4";
+            this.圆角1.Name = "圆角1";
+            this.圆角1.ReadOnly = true;
+            // 
+            // 圆角2
+            // 
+            this.圆角2.HeaderText = "C5";
+            this.圆角2.Name = "圆角2";
+            this.圆角2.ReadOnly = true;
+            // 
             // MyDraw
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 750);
             this.Controls.Add(this.dgvGrid);
@@ -384,6 +428,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbR1;
         private System.Windows.Forms.DataGridView dgvGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 锥度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 圆角1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 圆角2;
     }
 }
 

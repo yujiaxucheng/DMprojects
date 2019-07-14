@@ -60,11 +60,6 @@ namespace DrawPics
 
             this.R1 = Convert.ToSingle(this.tbR1.Text);
 
-            //pArc.X = Convert.ToSingle(this.tbArcX.Text);
-            //pArc.Y = Convert.ToSingle(this.tbArcY.Text);
-            //this.sa = Convert.ToSingle(this.tbS.Text);
-            //this.swa = Convert.ToSingle(this.tbSw.Text);
-
             this.tDraw.Enabled = true;
         }
 
@@ -76,10 +71,6 @@ namespace DrawPics
             DrawCoor(pbMain.CreateGraphics(), p);
 
             fPos = DrawDrill(pbMain.CreateGraphics(), p, D1, D2, L1, L2, a1, R1, R1, 0f);
-
-            //fPos = DrawDrill(pbMain.CreateGraphics(), p, D1, D2, L1, a1, fPos);
-            //fPos = DrawDrill(pbMain.CreateGraphics(), p, D2, D2 + 100f, L1, a2, fPos);
-            //DrawArc(pbMain.CreateGraphics(), p, pArc, R1, sa, swa);
 
             this.tDraw.Enabled = false;
         }
@@ -102,14 +93,18 @@ namespace DrawPics
             this.tbL1.Text = "180";
             this.tbD1.Text = "90";
             this.tba1.Text = "120";
-            this.tbL2.Text = "3000";
+            this.tbL2.Text = "300";
             this.tbD2.Text = "200";
             this.tba2.Text = "90";
+
+            this.tbR1.Text = "50";
 
             pArc.X = -298;
             pArc.Y = 25;
             sa = 90;
             swa = -60;
+
+            this.dgvGrid.Rows.Add(6);
         }
 
         /// <summary>
