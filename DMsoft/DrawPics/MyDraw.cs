@@ -78,6 +78,14 @@ namespace DrawPics
         #region 自定义方法
 
         /// <summary>
+        /// 初始化表格
+        /// </summary>
+        private void InitDGV()
+        { 
+        
+        }
+
+        /// <summary>
         /// 初始化
         /// </summary>
         private void Init()
@@ -366,5 +374,15 @@ namespace DrawPics
         }
 
         #endregion
+
+        // 单击表格
+        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int iRow = this.dgvGrid.CurrentCell.RowIndex;
+            int iCol = this.dgvGrid.CurrentCell.ColumnIndex;
+
+            this.dgvGrid.BeginEdit(true);
+
+        }
     }
 }
