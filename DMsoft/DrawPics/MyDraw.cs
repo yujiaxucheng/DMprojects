@@ -13,13 +13,15 @@ namespace DrawPics
     public partial class MyDraw : Form
     {
         private Point p0 = new Point();             // 原点坐标
-        private Point pArc = new Point();           // 圆弧参考点坐标
+        //private Point pArc = new Point();           // 圆弧参考点坐标
         private float m11, m12, m21, m22;           // 矩阵值
         private float fPos;                         // X轴绘制起始点
 
-        private double L1, D1, a1;                  // 定义钻头长度、直径、角度
-        private double L2, D2, a2;
-        private double R1, sa, swa;                 // 圆角半径 起始角，扫过角度
+        private float rate;                         // 比例
+
+        //private double L1, D1, a1;                  // 定义钻头长度、直径、角度
+        //private double L2, D2, a2;
+        //private double R1;                          // 圆角半径 起始角，扫过角度
 
         public MyDraw()
         {
@@ -27,38 +29,13 @@ namespace DrawPics
             Init();
         }
 
-        #region 三角函数
-
-        private const double PI = Math.PI;
-        private const double A2R = Math.PI / 180d;
-        private const double R2A = 180d / Math.PI;
-
-        private double Sin(double a) { return Math.Sin(a * A2R); }
-        private double Cos(double a) { return Math.Cos(a * A2R); }
-        private double Tan(double a) { return Math.Tan(a * A2R); }
-
-        #endregion
-
         // 作图按钮
         private void btnDraw_Click(object sender, EventArgs e)
         {
-            this.p0.X = Convert.ToSingle(this.tbX.Text);
-            this.p0.Y = Convert.ToSingle(this.tbY.Text);
-
-            this.m11 = Convert.ToSingle(this.tbM11.Text);
-            this.m12 = Convert.ToSingle(this.tbM12.Text);
-            this.m21 = Convert.ToSingle(this.tbM21.Text);
-            this.m22 = Convert.ToSingle(this.tbM22.Text);
-
-            this.L1 = Convert.ToSingle(this.tbL1.Text);
-            this.D1 = Convert.ToSingle(this.tbD1.Text);
-            this.a1 = Convert.ToSingle(this.tba1.Text);
-
-            this.L2 = Convert.ToSingle(this.tbL2.Text);
-            this.D2 = Convert.ToSingle(this.tbD2.Text);
-            this.a2 = Convert.ToSingle(this.tba2.Text);
-
-            this.R1 = Convert.ToSingle(this.tbR1.Text);
+            this.m11 = 1f * rate;
+            this.m12 = 0f;
+            this.m21 = 0f;
+            this.m22 = -1f * rate;
 
             this.tDraw.Enabled = true;
         }
@@ -70,19 +47,108 @@ namespace DrawPics
 
             DrawCoor(pbMain.CreateGraphics(), p);
 
-            fPos = DrawDrill(pbMain.CreateGraphics(), p, D1, D2, L1, L2, a1, R1, R1, 0f);
+            p.Color = Color.Red;
+            p.DashStyle = DashStyle.Dot;
+            fPos = DrawDrill(pbMain.CreateGraphics(), p, 15, 25, 10, 90, 0f);
+            fPos = DrawDrill(pbMain.CreateGraphics(), p, 100, 200, 100, 200, 90, 50, 50, fPos);
+
+            #region 绘制钻头
+
+            double d;                   // 小端直径
+            double D;                   // 大端直径
+            double l;                   // 长度
+            double a;                   // 锥角
+
+            int i, j;
+
+            fPos = 0;
+            p.Color = Color.Blue;
+            p.DashStyle = DashStyle.Solid;
+            for (i = 0; i < this.dgvGrid.Rows.Count; i++)
+            {
+                if (i == 0)
+                    d = 0;
+                else
+                    d =  Convert.ToDouble(this.dgvGrid.Rows[i - 1].Cells[2].Value);
+
+                if (i == this.dgvGrid.Rows.Count - 1)
+                    D = 1000;
+                else
+                    D =  Convert.ToDouble(this.dgvGrid.Rows[i].Cells[2].Value);
+
+                a = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[4].Value);
+
+                // 从0开始
+                if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[2].Value) == 1)
+                { 
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value); 
+                }
+                // 从圆柱起点开始
+                else if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[2].Value) == 2)
+                {
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value);
+                }
+                // 阶梯长度
+                else if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[2].Value) == 3)
+                {
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value);
+                }
+                // 阶梯长度+过渡
+                else
+                {
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value);
+                }
+
+                switch (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[1].Value))
+                {
+                    case 1:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
+                        break;
+                }
+            }
+
+            #endregion
 
             this.tDraw.Enabled = false;
         }
 
-        #region 自定义方法
+        // 单击表格
+        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int iRow = this.dgvGrid.CurrentCell.RowIndex;
+            int iCol = this.dgvGrid.CurrentCell.ColumnIndex;
+
+        }
+
+        #region 初始化操作
 
         /// <summary>
         /// 初始化表格
         /// </summary>
         private void InitDGV()
-        { 
-        
+        {
+            this.dgvGrid.Rows.Add(6);                                           // 设置表格行数为6
+
+            for (int i = 0; i < this.dgvGrid.Rows.Count; i++)
+            {
+                for (int j = 0; j < this.dgvGrid.Columns.Count; j++)
+                {
+                    this.dgvGrid.Rows[i].Cells[j].Value = "20";                 // 表格赋值默认值
+                }
+            }
         }
 
         /// <summary>
@@ -90,30 +156,16 @@ namespace DrawPics
         /// </summary>
         private void Init()
         {
-            this.tbX.Text = "900";
-            this.tbY.Text = "250";
-            
-            this.tbM11.Text = "1";
-            this.tbM12.Text = "0";
-            this.tbM21.Text = "0";
-            this.tbM22.Text = "-1";
+            this.rate = 1f;                                                 // 比例默认为1
+            this.p0.X = 900f;
+            this.p0.Y = 250f;
 
-            this.tbL1.Text = "180";
-            this.tbD1.Text = "90";
-            this.tba1.Text = "120";
-            this.tbL2.Text = "300";
-            this.tbD2.Text = "200";
-            this.tba2.Text = "90";
-
-            this.tbR1.Text = "50";
-
-            pArc.X = -298;
-            pArc.Y = 25;
-            sa = 90;
-            swa = -60;
-
-            this.dgvGrid.Rows.Add(6);
+            InitDGV();
         }
+
+        #endregion
+
+        #region 画图操作
 
         /// <summary>
         /// 绘制坐标系
@@ -150,8 +202,8 @@ namespace DrawPics
             Point p1, p2, p3, p4, p5, p6;
 
             g.Transform = new Matrix(m11, m12, m21, m22, p0.X, p0.Y);       // 设置矩阵
-            p.Color = Color.Blue;                                           // 线颜色
-            p.DashStyle = DashStyle.Solid;                                  // 线型
+            //p.Color = Color.Blue;                                           // 线颜色
+            //p.DashStyle = DashStyle.Solid;                                  // 线型
 
             // 计算点
             p1.X = p2.X = fPos;
@@ -196,8 +248,8 @@ namespace DrawPics
             Point p_t1, p_t2, p_t3, p_t4;                                       // 钻头图辅助点
 
             g.Transform = new Matrix(m11, m12, m21, m22, p0.X, p0.Y);           // 设置矩阵
-            p.Color = Color.Blue;                                               // 线颜色
-            p.DashStyle = DashStyle.Solid;                                      // 线型
+            //p.Color = Color.Blue;                                               // 线颜色
+            //p.DashStyle = DashStyle.Solid;                                      // 线型
 
             // 计算点
             p1.X = p2.X = fPos; ;
@@ -263,20 +315,6 @@ namespace DrawPics
             DrawArc(g, p, p_A3, R2, 90, -(a * 0.5));
             DrawArc(g, p, p_A4, R2, -90, (a * 0.5));
 
-            this.lPointInfo.Text = "";
-            PrintPoint(this.lPointInfo, p1, "p1");
-            PrintPoint(this.lPointInfo, p2, "p2");
-            PrintPoint(this.lPointInfo, p3, "p3");
-            PrintPoint(this.lPointInfo, p4, "p4");
-            PrintPoint(this.lPointInfo, p5, "p5");
-            PrintPoint(this.lPointInfo, p6, "p6");
-            PrintPoint(this.lPointInfo, p7, "p7");
-            PrintPoint(this.lPointInfo, p8, "p8");
-            PrintPoint(this.lPointInfo, p9, "p9");
-            PrintPoint(this.lPointInfo, p10, "p10");
-            PrintPoint(this.lPointInfo, p11, "p11");
-            PrintPoint(this.lPointInfo, p12, "p12");
-
             fPos = p11.X;
             return fPos;
         }
@@ -293,13 +331,27 @@ namespace DrawPics
         private float DrawArc(Graphics g, Pen p, Point P, double R, double start, double a)
         {
             g.Transform = new Matrix(m11, m12, m21, m22, p0.X, p0.Y);       // 设置矩阵
-            p.Color = Color.Blue;                                           // 线颜色
-            p.DashStyle = DashStyle.Solid;                                  // 线型
-            
+
             g.DrawArc(p, P.X, P.Y, (float)R * 2, (float)R * 2, (float)start, (float)a);
 
             return fPos;
         }
+
+        #endregion
+
+        #region 三角函数
+
+        private const double PI = Math.PI;
+        private const double A2R = Math.PI / 180d;
+        private const double R2A = 180d / Math.PI;
+
+        private double Sin(double a) { return Math.Sin(a * A2R); }
+        private double Cos(double a) { return Math.Cos(a * A2R); }
+        private double Tan(double a) { return Math.Tan(a * A2R); }
+
+        #endregion
+
+        #region 临时不用
 
         // 临时输出点坐标
         private void PrintPoint(Label l, Point p, string name)
@@ -373,16 +425,19 @@ namespace DrawPics
             return fPos;
         }
 
-        #endregion
+        #endregion 
 
-        // 单击表格
-        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        // 修改绘图比例
+        private void nRate_ValueChanged(object sender, EventArgs e)
         {
-            int iRow = this.dgvGrid.CurrentCell.RowIndex;
-            int iCol = this.dgvGrid.CurrentCell.ColumnIndex;
+            this.rate = (float)(this.nRate.Value / 100);
 
-            this.dgvGrid.BeginEdit(true);
+            this.m11 = 1f * rate;
+            this.m12 = 0f;
+            this.m21 = 0f;
+            this.m22 = -1f * rate;
 
+            this.tDraw.Enabled = true;
         }
     }
 }
