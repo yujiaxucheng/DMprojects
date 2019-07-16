@@ -19,10 +19,6 @@ namespace DrawPics
 
         private float rate;                         // 比例
 
-        //private double L1, D1, a1;                  // 定义钻头长度、直径、角度
-        //private double L2, D2, a2;
-        //private double R1;                          // 圆角半径 起始角，扫过角度
-
         public MyDraw()
         {
             InitializeComponent();
@@ -105,14 +101,19 @@ namespace DrawPics
                         fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     case 2:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     case 3:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     case 4:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     case 5:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     case 6:
+                        fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
                         break;
                     default:
                         fPos = DrawDrill(pbMain.CreateGraphics(), p, d, D, l, a, fPos);
