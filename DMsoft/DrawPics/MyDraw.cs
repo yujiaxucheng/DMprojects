@@ -476,6 +476,8 @@ namespace DrawPics
             this.tDraw.Enabled = true;
         }
 
+        #region 实现拖曳功能
+
         // 按下鼠标
         private void pbMain_MouseDown(object sender, MouseEventArgs e)
         {
@@ -516,5 +518,7 @@ namespace DrawPics
            
             }
         }
+
+        #endregion
     }
 }
