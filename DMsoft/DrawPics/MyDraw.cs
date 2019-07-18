@@ -12,12 +12,15 @@ namespace DrawPics
 {
     public partial class MyDraw : Form
     {
-        private Point p0 = new Point();             // 原点坐标
-        //private Point pArc = new Point();           // 圆弧参考点坐标
-        private float m11, m12, m21, m22;           // 矩阵值
-        private float fPos;                         // X轴绘制起始点
+        private Point p0 = new Point();                     // 原点坐标
+        private Point mouseDownPoint = new Point();
+        private Point p0_tmp = new Point();
 
-        private float rate;                         // 比例
+        private float m11, m12, m21, m22;                   // 矩阵值
+        private float fPos;                                 // X轴绘制起始点
+        private float rate;                                 // 比例
+
+        private bool MouseIsHold = false;                   // 鼠标是否长按
 
         public MyDraw()
         {
@@ -43,6 +46,89 @@ namespace DrawPics
 
             DrawCoor(pbMain.CreateGraphics(), p);
 
+            Draw(pbMain.CreateGraphics(), p);
+
+            this.tDraw.Enabled = false;
+        }
+
+        // 单击表格
+        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int iRow = this.dgvGrid.CurrentCell.RowIndex;
+            int iCol = this.dgvGrid.CurrentCell.ColumnIndex;
+
+        }
+
+        #region 初始化操作
+
+        /// <summary>
+        /// 初始化表格
+        /// </summary>
+        private void InitDGV()
+        {
+            this.dgvGrid.Rows.Add(6);                                           // 设置表格行数为6
+
+            for (int i = 0; i < this.dgvGrid.Rows.Count; i++)
+            {
+                for (int j = 0; j < this.dgvGrid.Columns.Count; j++)
+                {
+                    this.dgvGrid.Rows[i].Cells[j].Value = "20";                 // 表格赋值默认值
+                }
+            }
+
+            this.dgvGrid.Rows[0].Cells[0].Value = "1";
+            this.dgvGrid.Rows[1].Cells[0].Value = "2";
+            this.dgvGrid.Rows[2].Cells[0].Value = "3";
+            this.dgvGrid.Rows[3].Cells[0].Value = "4";
+            this.dgvGrid.Rows[4].Cells[0].Value = "5";
+            this.dgvGrid.Rows[5].Cells[0].Value = "6";
+
+            this.dgvGrid.Rows[0].Cells[1].Value = "1";
+            this.dgvGrid.Rows[1].Cells[1].Value = "2";
+            this.dgvGrid.Rows[2].Cells[1].Value = "3";
+            this.dgvGrid.Rows[3].Cells[1].Value = "4";
+
+            this.dgvGrid.Rows[0].Cells[2].Value = "8";
+            this.dgvGrid.Rows[1].Cells[2].Value = "12";
+            this.dgvGrid.Rows[2].Cells[2].Value = "16";
+            this.dgvGrid.Rows[3].Cells[2].Value = "24";
+            this.dgvGrid.Rows[4].Cells[2].Value = "36";
+            this.dgvGrid.Rows[5].Cells[2].Value = "48";
+
+            this.dgvGrid.Rows[0].Cells[3].Value = "20";
+            this.dgvGrid.Rows[1].Cells[3].Value = "30";
+            this.dgvGrid.Rows[2].Cells[3].Value = "40";
+            this.dgvGrid.Rows[3].Cells[3].Value = "50";
+            this.dgvGrid.Rows[4].Cells[3].Value = "60";
+            this.dgvGrid.Rows[5].Cells[3].Value = "70";
+
+            this.dgvGrid.Rows[0].Cells[4].Value = "140";
+            this.dgvGrid.Rows[1].Cells[4].Value = "120";
+            this.dgvGrid.Rows[2].Cells[4].Value = "100";
+            this.dgvGrid.Rows[3].Cells[4].Value = "90";
+            this.dgvGrid.Rows[4].Cells[4].Value = "80";
+            this.dgvGrid.Rows[5].Cells[4].Value = "60";
+
+        }
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        private void Init()
+        {
+            this.rate = 1f;                                                 // 比例默认为1
+            this.p0.X = 900f;
+            this.p0.Y = 250f;
+
+            InitDGV();
+        }
+
+        #endregion
+
+        #region 画图操作
+
+        private void Draw(Graphics g, Pen p)
+        {
             p.Color = Color.Red;
             p.DashStyle = DashStyle.Dot;
             fPos = DrawDrill(pbMain.CreateGraphics(), p, 15, 25, 10, 90, 0f);
@@ -65,19 +151,19 @@ namespace DrawPics
                 if (i == 0)
                     d = 0;
                 else
-                    d =  Convert.ToDouble(this.dgvGrid.Rows[i - 1].Cells[2].Value);
+                    d = Convert.ToDouble(this.dgvGrid.Rows[i - 1].Cells[2].Value);
 
                 if (i == this.dgvGrid.Rows.Count - 1)
                     D = 1000;
                 else
-                    D =  Convert.ToDouble(this.dgvGrid.Rows[i].Cells[2].Value);
+                    D = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[2].Value);
 
                 a = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[4].Value);
 
                 // 从0开始
                 if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[2].Value) == 1)
-                { 
-                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value); 
+                {
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value);
                 }
                 // 从圆柱起点开始
                 else if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[2].Value) == 2)
@@ -122,51 +208,7 @@ namespace DrawPics
             }
 
             #endregion
-
-            this.tDraw.Enabled = false;
         }
-
-        // 单击表格
-        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int iRow = this.dgvGrid.CurrentCell.RowIndex;
-            int iCol = this.dgvGrid.CurrentCell.ColumnIndex;
-
-        }
-
-        #region 初始化操作
-
-        /// <summary>
-        /// 初始化表格
-        /// </summary>
-        private void InitDGV()
-        {
-            this.dgvGrid.Rows.Add(6);                                           // 设置表格行数为6
-
-            for (int i = 0; i < this.dgvGrid.Rows.Count; i++)
-            {
-                for (int j = 0; j < this.dgvGrid.Columns.Count; j++)
-                {
-                    this.dgvGrid.Rows[i].Cells[j].Value = "20";                 // 表格赋值默认值
-                }
-            }
-        }
-
-        /// <summary>
-        /// 初始化
-        /// </summary>
-        private void Init()
-        {
-            this.rate = 1f;                                                 // 比例默认为1
-            this.p0.X = 900f;
-            this.p0.Y = 250f;
-
-            InitDGV();
-        }
-
-        #endregion
-
-        #region 画图操作
 
         /// <summary>
         /// 绘制坐标系
@@ -416,13 +458,6 @@ namespace DrawPics
             g.DrawLine(p, p1.X, p1.Y, p3.X, p3.Y);
             g.DrawLine(p, p2.X, p2.Y, p4.X, p4.Y);
 
-            this.lPointInfo.Text = "";
-            PrintPoint(this.lPointInfo, p0, "p0");
-            PrintPoint(this.lPointInfo, p1, "p1");
-            PrintPoint(this.lPointInfo, p2, "p2");
-            PrintPoint(this.lPointInfo, p3, "p3");
-            PrintPoint(this.lPointInfo, p4, "p4");
-
             return fPos;
         }
 
@@ -439,6 +474,47 @@ namespace DrawPics
             this.m22 = -1f * rate;
 
             this.tDraw.Enabled = true;
+        }
+
+        // 按下鼠标
+        private void pbMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                p0_tmp.X = p0.X;                                            // 保护起来
+                p0_tmp.Y = p0.Y;
+
+                mouseDownPoint.X = e.X;
+                mouseDownPoint.Y = e.Y;
+
+                pbMain.Cursor = Cursors.SizeAll;
+                MouseIsHold = true;
+            }
+        }
+        // 松开鼠标
+        private void pbMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            MouseIsHold = false;
+            pbMain.Cursor = Cursors.Default;
+        }
+        // 移动鼠标
+        private void pbMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            Pen p = new Pen(Color.Blue, 0.5f);
+            if (MouseIsHold)
+            {
+                p0.X = p0_tmp.X + e.X - mouseDownPoint.X;
+                p0.Y = p0_tmp.Y + e.Y - mouseDownPoint.Y;
+
+                this.tDraw.Enabled = true;
+
+                this.lPointInfo.Text =  "\n 鼠标坐标X:"  + e.X.ToString()       + ", Y:"  + e.Y.ToString() + 
+                                        "\n 坐标系原点X0:" + p0.X.ToString()      + ", Y0:" + p0.Y.ToString() +
+                                        "\n 点击坐标X1:" + mouseDownPoint.X.ToString() + ", Y1:" + mouseDownPoint.Y.ToString() +
+                                        "\n 鼠标与点击点差值X-X1:" + (e.X - mouseDownPoint.X).ToString() + ", Y-Y1:" + (e.Y - mouseDownPoint.Y).ToString() +
+                                        "\n 新坐标系原点newX0:" + (p0.X + e.X - mouseDownPoint.X).ToString() + ", newY0:" + (p0.Y + e.Y - mouseDownPoint.Y).ToString();
+           
+            }
         }
     }
 }

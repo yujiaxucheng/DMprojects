@@ -34,8 +34,6 @@
             this.tDraw = new System.Windows.Forms.Timer(this.components);
             this.lPointInfo = new System.Windows.Forms.Label();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
-            this.nRate = new System.Windows.Forms.NumericUpDown();
-            this.lrate = new System.Windows.Forms.Label();
             this.C7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             this.C3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nRate = new System.Windows.Forms.NumericUpDown();
+            this.lrate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nRate)).BeginInit();
@@ -56,6 +56,9 @@
             this.pbMain.Size = new System.Drawing.Size(1000, 500);
             this.pbMain.TabIndex = 0;
             this.pbMain.TabStop = false;
+            this.pbMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbMain_MouseDown);
+            this.pbMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbMain_MouseMove);
+            this.pbMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbMain_MouseUp);
             // 
             // btnDraw
             // 
@@ -74,7 +77,7 @@
             // lPointInfo
             // 
             this.lPointInfo.AutoSize = true;
-            this.lPointInfo.Location = new System.Drawing.Point(1035, 311);
+            this.lPointInfo.Location = new System.Drawing.Point(844, 154);
             this.lPointInfo.Name = "lPointInfo";
             this.lPointInfo.Size = new System.Drawing.Size(72, 16);
             this.lPointInfo.TabIndex = 6;
@@ -101,38 +104,6 @@
             this.dgvGrid.Size = new System.Drawing.Size(795, 266);
             this.dgvGrid.TabIndex = 14;
             this.dgvGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrid_CellClick);
-            // 
-            // nRate
-            // 
-            this.nRate.Location = new System.Drawing.Point(1067, 33);
-            this.nRate.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nRate.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nRate.Name = "nRate";
-            this.nRate.Size = new System.Drawing.Size(120, 26);
-            this.nRate.TabIndex = 15;
-            this.nRate.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nRate.ValueChanged += new System.EventHandler(this.nRate_ValueChanged);
-            // 
-            // lrate
-            // 
-            this.lrate.AutoSize = true;
-            this.lrate.Location = new System.Drawing.Point(1007, 35);
-            this.lrate.Name = "lrate";
-            this.lrate.Size = new System.Drawing.Size(40, 16);
-            this.lrate.TabIndex = 16;
-            this.lrate.Text = "比例";
             // 
             // C7
             // 
@@ -169,6 +140,38 @@
             // 
             this.C5.HeaderText = "圆角2";
             this.C5.Name = "C5";
+            // 
+            // nRate
+            // 
+            this.nRate.Location = new System.Drawing.Point(1067, 33);
+            this.nRate.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nRate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nRate.Name = "nRate";
+            this.nRate.Size = new System.Drawing.Size(120, 26);
+            this.nRate.TabIndex = 15;
+            this.nRate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nRate.ValueChanged += new System.EventHandler(this.nRate_ValueChanged);
+            // 
+            // lrate
+            // 
+            this.lrate.AutoSize = true;
+            this.lrate.Location = new System.Drawing.Point(1007, 35);
+            this.lrate.Name = "lrate";
+            this.lrate.Size = new System.Drawing.Size(40, 16);
+            this.lrate.TabIndex = 16;
+            this.lrate.Text = "比例";
             // 
             // MyDraw
             // 
