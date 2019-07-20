@@ -92,9 +92,9 @@ namespace DrawPics
             this.dgvGrid.Rows[2].Cells[1].Value = "3";
             this.dgvGrid.Rows[3].Cells[1].Value = "4";
 
-            this.dgvGrid.Rows[0].Cells[2].Value = "6";
-            this.dgvGrid.Rows[1].Cells[2].Value = "12";
-            this.dgvGrid.Rows[2].Cells[2].Value = "16";
+            this.dgvGrid.Rows[0].Cells[2].Value = "8";
+            this.dgvGrid.Rows[1].Cells[2].Value = "15";
+            this.dgvGrid.Rows[2].Cells[2].Value = "20";
             this.dgvGrid.Rows[3].Cells[2].Value = "24";
             this.dgvGrid.Rows[4].Cells[2].Value = "36";
             this.dgvGrid.Rows[5].Cells[2].Value = "48";
@@ -106,8 +106,8 @@ namespace DrawPics
             this.dgvGrid.Rows[4].Cells[3].Value = "60";
             this.dgvGrid.Rows[5].Cells[3].Value = "70";
 
-            this.dgvGrid.Rows[0].Cells[4].Value = "140";
-            this.dgvGrid.Rows[1].Cells[4].Value = "120";
+            this.dgvGrid.Rows[0].Cells[4].Value = "90";
+            this.dgvGrid.Rows[1].Cells[4].Value = "60";
             this.dgvGrid.Rows[2].Cells[4].Value = "100";
             this.dgvGrid.Rows[3].Cells[4].Value = "90";
             this.dgvGrid.Rows[4].Cells[4].Value = "80";
@@ -144,6 +144,7 @@ namespace DrawPics
             double D;                                                           // 大端直径
             double l;                                                           // 长度
             double a;                                                           // 锥角
+            double r1, r2;
 
             int i, j;
 
@@ -169,16 +170,18 @@ namespace DrawPics
                     D = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[2].Value);      // 否则大端直径为表格参数
 
                 a = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[4].Value);          // 当前台阶尾部锥度
+                r1 = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[5].Value);
+                r2 = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[6].Value);
 
                 // 从0开始
                 if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[1].Value) == 1)
                 {
-                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) + (double)fPosBgn[nStep];
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) + (double)fPosBgn[nStep - 1];
                 }
                 // 从圆柱起点开始
                 else if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[1].Value) == 2)
                 {
-                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) + (double)fPosBgn[nStep] - (double)fPosBgn[0];
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) + (double)fPosBgn[nStep - 1] - (double)fPosBgn[0];
                 }
                 // 阶梯长度
                 else if (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[1].Value) == 3)
@@ -188,20 +191,20 @@ namespace DrawPics
                 // 阶梯长度+过渡
                 else
                 {
-                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) + (-(double)fPosBgn[nStep] + (double)fPosEnd[nStep]);
+                    l = Convert.ToDouble(this.dgvGrid.Rows[i].Cells[3].Value) - (-(double)fPosBgn[nStep - 1] + (double)fPosEnd[nStep - 1]);
                 }
 
                 // 根据阶梯形状绘制
-                switch (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[1].Value))
+                switch (Convert.ToInt32(this.dgvGrid.Rows[i].Cells[0].Value))
                 {
                     case 1: // 锥形
                         fPos = DrawDrill(g, p, d, D, 0d, l, a, fPos);
                         break;
                     case 2: // 锥形+圆角
-                        //fPos = DrawDrill(g, p, d, D, 0d, l, a, 1d, 1d, fPos);
+                        fPos = DrawDrill(g, p, d, D, 0d, l, a, r1, r2, fPos);
                         break;
                     case 3: // 双锥内凹
-                        //fPos = DrawDrill(g, p, d, D, 0d, l, a, fPos);
+                        fPos = DrawDrill(g, p, d, D, 0d, l, a, fPos);
                         break;
                     case 4: // 双锥内凹+圆角
                         //fPos = DrawDrill(g, p, d, D, 0d, l, a, fPos);
@@ -263,7 +266,7 @@ namespace DrawPics
             // 计算点
             p1.X = p2.X = fPos;
             p3.X = p4.X = p1.X - (float)l_right;
-            p5.X = p6.X = fPos - (float)(0.5 * (D - d) / Tan(0.5 * a));
+            p5.X = p6.X = p3.X - (float)(0.5 * (D - d) / Tan(0.5 * a));
             p7.X = p8.X = p5.X - (float)l_left;
             p1.Y = +(float)(0.5 * d);
             p2.Y = -(float)(0.5 * d);
@@ -272,11 +275,14 @@ namespace DrawPics
             p5.Y = p7.Y = +(float)(0.5 * D);
             p6.Y = p8.Y = -(float)(0.5 * D);
 
+            g.DrawLine(p, p1.X, p1.Y, p3.X, p3.Y);
             g.DrawLine(p, p3.X, p3.Y, p5.X, p5.Y);
             g.DrawLine(p, p7.X, p7.Y, p5.X, p5.Y);
+            g.DrawLine(p, p4.X, p4.Y, p2.X, p2.Y);
             g.DrawLine(p, p4.X, p4.Y, p6.X, p6.Y);
             g.DrawLine(p, p8.X, p8.Y, p6.X, p6.Y);
 
+            g.DrawLine(p, p1.X, p1.Y, p2.X, p2.Y);
             g.DrawLine(p, p3.X, p3.Y, p4.X, p4.Y);
             g.DrawLine(p, p5.X, p5.Y, p6.X, p6.Y);
             g.DrawLine(p, p7.X, p7.Y, p8.X, p8.Y);
@@ -301,7 +307,7 @@ namespace DrawPics
         /// <param name="R2">R2角</param>
         /// <param name="fPos">起始位置</param>
         /// <returns>终点位置</returns>
-        private float DrawDrill(Graphics g, Pen p, double d, double D, double l_right, double l_left, double a, double R1, double R2, float fPos)
+        private float DrawDrill(Graphics g, Pen p, double d, double D, double l_left, double l_right, double a, double R1, double R2, float fPos)
         {
             Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;            // 钻头图形上点
             Point p_A1, p_A2, p_A3, p_A4;                                       // 圆弧辅助点
@@ -310,11 +316,11 @@ namespace DrawPics
             g.Transform = new Matrix(m11, m12, m21, m22, p0.X, p0.Y);           // 设置矩阵
 
             // 计算点
-            p1.X = p2.X = fPos; ;
+            p1.X = p2.X = fPos;
             p1.Y = +(float)(0.5 * d);
             p2.Y = -(float)(0.5 * d);
 
-            p_t1.X = p_t2.X = fPos - (float)l_right; ;
+            p_t1.X = p_t2.X = fPos - (float)l_right;
             p_t1.Y = +(float)(0.5 * d);
             p_t2.Y = -(float)(0.5 * d);
 
@@ -330,13 +336,13 @@ namespace DrawPics
             p_t3.Y = +(float)(0.5 * D);
             p_t4.Y = -(float)(0.5 * D);
 
-            p9.X = p10.X = p_t3.X - (float)(R1 * Tan(0.25 * a));
+            p9.X = p10.X = p_t3.X - (float)(R2 * Tan(0.25 * a));
             p9.Y = +(float)(0.5 * D);
             p10.Y = -(float)(0.5 * D);
 
-            p7.X = p8.X = p9.X + (float)(2d * R1 * Sin(0.25 * a) * Cos(0.25 * a));
-            p7.Y = p9.Y - (float)(2d * R1 * Sin(0.25 * a) * Sin(0.25 * a));
-            p8.Y = p10.Y + (float)(2d * R1 * Sin(0.25 * a) * Sin(0.25 * a));
+            p7.X = p8.X = p9.X + (float)(2d * R2 * Sin(0.25 * a) * Cos(0.25 * a));
+            p7.Y = p9.Y - (float)(2d * R2 * Sin(0.25 * a) * Sin(0.25 * a));
+            p8.Y = p10.Y + (float)(2d * R2 * Sin(0.25 * a) * Sin(0.25 * a));
 
             p11.X = p12.X = p_t3.X - (float)l_left;
             p11.Y = +(float)(0.5 * D);
@@ -345,18 +351,18 @@ namespace DrawPics
             // 钻头除圆角之外的连线
             g.DrawLine(p, p1.X, p1.Y, p3.X, p3.Y);
             g.DrawLine(p, p5.X, p5.Y, p7.X, p7.Y);
-            g.DrawLine(p, p9.X, p9.Y, p11.X, p11.Y);
+            //g.DrawLine(p, p9.X, p9.Y, p11.X, p11.Y);
 
             g.DrawLine(p, p2.X, p2.Y, p4.X, p4.Y);
             g.DrawLine(p, p6.X, p6.Y, p8.X, p8.Y);
-            g.DrawLine(p, p10.X, p10.Y, p12.X, p12.Y);
+            //g.DrawLine(p, p10.X, p10.Y, p12.X, p12.Y);
 
             g.DrawLine(p, p1.X, p1.Y, p2.X, p2.Y);
             g.DrawLine(p, p3.X, p3.Y, p4.X, p4.Y);
             g.DrawLine(p, p5.X, p5.Y, p6.X, p6.Y);
             g.DrawLine(p, p7.X, p7.Y, p8.X, p8.Y);
             g.DrawLine(p, p9.X, p9.Y, p10.X, p10.Y);
-            g.DrawLine(p, p11.X, p11.Y, p12.X, p12.Y);
+            //g.DrawLine(p, p11.X, p11.Y, p12.X, p12.Y);
 
             // 圆弧辅助矩形左下顶点
             p_A1.X = p3.X - (float)R1;
@@ -373,7 +379,7 @@ namespace DrawPics
             DrawArc(g, p, p_A3, R2, 90, -(a * 0.5));
             DrawArc(g, p, p_A4, R2, -90, (a * 0.5));
 
-            fPos = p11.X;
+            fPos = p9.X;
             fPosBgn[nStep] = p_t3.X;                                          // 圆柱起点位置
             fPosEnd[nStep] = p_t1.X;                                          // 锥角起点位置
             return fPos;
