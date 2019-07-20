@@ -133,11 +133,6 @@ namespace DrawPics
 
         private void Draw(Graphics g, Pen p)
         {
-            //p.Color = Color.Red;
-            //p.DashStyle = DashStyle.Dot;
-            //fPos = DrawDrill(pbMain.CreateGraphics(), p, 15, 25, 10, 90, 0f);
-            //fPos = DrawDrill(pbMain.CreateGraphics(), p, 100, 200, 100, 200, 90, 50, 50, fPos);
-
             #region 绘制钻头
 
             double d;                                                           // 小端直径
