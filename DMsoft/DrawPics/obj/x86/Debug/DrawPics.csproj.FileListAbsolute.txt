@@ -39,3 +39,4 @@ D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csprojResolveAssem
 D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.MyDraw.resources
 D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.Properties.Resources.resources
 D:\MyGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csproj.GenerateResource.Cache
+D:\DMprojects\DMprojects\DMsoft\DrawPics\obj\x86\Debug\DrawPics.csprojResolveAssemblyReference.cache
