@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrawPics
 {
-    class BasicData
+    public class BasicData
     {
     }
 
@@ -13,5 +13,11 @@ namespace DrawPics
     {
         public float X;
         public float Y;
+
+        public Point(float fx, float fy)
+        {
+            this.X = fx;
+            this.Y = fy;
+        }
     }
 }
