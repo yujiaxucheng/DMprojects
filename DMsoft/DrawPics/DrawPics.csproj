@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDrill.cs" />
     <EmbeddedResource Include="MyDraw.resx">
       <DependentUpon>MyDraw.cs</DependentUpon>
     </EmbeddedResource>
