@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DrawPics.ToolObj;
 
 namespace DrawPics
 {
@@ -50,7 +51,10 @@ namespace DrawPics
 
             DrawCoor(pbMain.CreateGraphics(), p);
 
-            Draw(pbMain.CreateGraphics(), p);
+            //Draw(pbMain.CreateGraphics(), p);
+
+            StepDrill msd = new StepDrill(20, 10);
+            msd.Draw(pbMain.CreateGraphics(), p);
 
             this.tDraw.Enabled = false;
         }
@@ -141,7 +145,7 @@ namespace DrawPics
             double a;                                                           // 锥角
             double r1, r2;
 
-            int i, j;
+            int i;
 
             fPos = 0;                                                           // 从原点开始作图
             p.Color = Color.Blue;
