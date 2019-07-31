@@ -12,13 +12,13 @@ namespace DrawPics.ToolObj
     /// </summary>
     public class StepDrill : Drill
     {
-        public const int STEP_NUM = 10;
+        public const int STEP_NUM = 10;                         // 常量
 
         public const int SIG_SUCCESS = 0;                       // 成功
         public const int SIG_FAILURE = 1;                       // 失败
 
         public int ns;                                          // 阶梯钻阶梯数
-        public int step_N;                                       // 当前阶梯序号
+        public int step_N;                                      // 当前阶梯序号
 
         public double topD;                                     // 钻尖直径
 
@@ -34,8 +34,14 @@ namespace DrawPics.ToolObj
         public double[] arrR2 = new double[STEP_NUM];           // 圆角2
         public double[] arrR3 = new double[STEP_NUM];           // 圆角3
 
-        Point p0 = new Point(900f, 250f);
+        private Point p0 = new Point(900f, 250f);               // 设置原点
+        private float fRate;                                    // 绘图比例
+        private float[] posBgn = new float[STEP_NUM];           // 阶梯过渡起点
+        private float[] posEnd = new float[STEP_NUM];           // 阶梯过渡终点
 
+        /// <summary>
+        /// 缺省构造函数
+        /// </summary>
         public StepDrill()
         {
             
@@ -92,6 +98,21 @@ namespace DrawPics.ToolObj
             }
             return SIG_SUCCESS;
         }
+
+        /// <summary>
+        /// 设置作图原点和比例
+        /// </summary>
+        /// <param name="fx">原点绝对X坐标</param>
+        /// <param name="fy">原点绝对Y坐标</param>
+        /// <param name="frate">作图比例</param>
+        public void SetDrawPara(float fx, float fy, float frate)
+        {
+            p0.X = fx;
+            p0.Y = fy;
+            fRate = frate;
+        }
+
+        #region 绘制钻头
 
         /// <summary>
         /// 绘制阶梯钻头
@@ -210,7 +231,7 @@ namespace DrawPics.ToolObj
         {
             Point p1, p2, p3, p4, p5, p6, p7, p8;
 
-            g.Transform = new Matrix(1, 0, 0, -1, p0.X, p0.Y);       // 设置矩阵
+            g.Transform = new Matrix(fRate, 0, 0, -fRate, p0.X, p0.Y);       // 设置矩阵
 
             // 计算点
             p1.X = p2.X = fPos;
@@ -241,6 +262,102 @@ namespace DrawPics.ToolObj
             //fPosEnd[nStep] = p3.X;                                          // 锥角起点位置
             return fPos;
         }
+
+        /// <summary>
+        /// 绘制带R角双锥钻头
+        /// </summary>
+        /// <param name="g">画布</param>
+        /// <param name="p">画笔</param>
+        /// <param name="d">小端直径</param>
+        /// <param name="D">大端直径</param>
+        /// <param name="l_right">圆柱部分长度</param>
+        /// <param name="l_left">圆柱部分长度</param>
+        /// <param name="a1">锥角1</param>
+        /// <param name="a2">锥角2</param>
+        /// <param name="R1">R1角</param>
+        /// <param name="R2">R2角</param>
+        /// <param name="R3">R3角</param>
+        /// <param name="fPos">起始位置</param>
+        /// <returns>终点位置</returns>
+        private float DrawDrill(Graphics g, Pen p, double d, double D, double l_left, double l_right, double a1, double a2, double R1, double R2, double R3, float fPos)
+        {
+            Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16;                        // 钻头图形上点
+            Point p_A1, p_A2, p_A3, p_A4, p_A5, p_A6;                                                           // 圆弧辅助点
+            Point p_t1, p_t2, p_t3, p_t4, p_t5, p_t6;                                                           // 钻头图辅助点
+
+            g.Transform = new Matrix(fRate, 0f, 0f, -fRate, p0.X, p0.Y);           // 设置矩阵
+
+            // 计算点
+            p1.X = p2.X = fPos;
+            p1.Y = +(float)(0.5 * d);
+            p2.Y = -(float)(0.5 * d);
+
+            p_t1.X = p_t2.X = fPos - (float)l_right;
+            p_t1.Y = +(float)(0.5 * d);
+            p_t2.Y = -(float)(0.5 * d);
+
+            p3.X = p4.X = p_t1.X + (float)(R1 * Tan(0.25 * a1));
+            p3.Y = +(float)(0.5 * d);
+            p4.Y = -(float)(0.5 * d);
+
+            p5.X = p6.X = p3.X - (float)(2d * R1 * Sin(0.25 * a1) * Cos(0.25 * a1));
+            p5.Y = p3.Y + (float)(2d * R1 * Sin(0.25 * a1) * Sin(0.25 * a1));
+            p6.Y = p4.Y - (float)(2d * R1 * Sin(0.25 * a1) * Sin(0.25 * a1));
+
+            p_t3.X = p_t4.X = p_t1.X - (float)(0.5 * (D - d) / Tan(0.5 * a1));
+            p_t3.Y = +(float)(0.5 * D);
+            p_t4.Y = -(float)(0.5 * D);
+
+            p9.X = p10.X = p_t3.X - (float)(R2 * Tan(0.25 * a1));
+            p9.Y = +(float)(0.5 * D);
+            p10.Y = -(float)(0.5 * D);
+
+            p7.X = p8.X = p9.X + (float)(2d * R2 * Sin(0.25 * a1) * Cos(0.25 * a1));
+            p7.Y = p9.Y - (float)(2d * R2 * Sin(0.25 * a1) * Sin(0.25 * a1));
+            p8.Y = p10.Y + (float)(2d * R2 * Sin(0.25 * a1) * Sin(0.25 * a1));
+
+            p11.X = p12.X = p_t3.X - (float)l_left;
+            p11.Y = +(float)(0.5 * D);
+            p12.Y = -(float)(0.5 * D);
+
+            // 钻头除圆角之外的连线
+            g.DrawLine(p, p1.X, p1.Y, p3.X, p3.Y);
+            g.DrawLine(p, p5.X, p5.Y, p7.X, p7.Y);
+            //g.DrawLine(p, p9.X, p9.Y, p11.X, p11.Y);
+
+            g.DrawLine(p, p2.X, p2.Y, p4.X, p4.Y);
+            g.DrawLine(p, p6.X, p6.Y, p8.X, p8.Y);
+            //g.DrawLine(p, p10.X, p10.Y, p12.X, p12.Y);
+
+            g.DrawLine(p, p1.X, p1.Y, p2.X, p2.Y);
+            g.DrawLine(p, p3.X, p3.Y, p4.X, p4.Y);
+            g.DrawLine(p, p5.X, p5.Y, p6.X, p6.Y);
+            g.DrawLine(p, p7.X, p7.Y, p8.X, p8.Y);
+            g.DrawLine(p, p9.X, p9.Y, p10.X, p10.Y);
+            //g.DrawLine(p, p11.X, p11.Y, p12.X, p12.Y);
+
+            // 圆弧辅助矩形左下顶点
+            p_A1.X = p3.X - (float)R1;
+            p_A1.Y = p3.Y;
+            p_A2.X = p4.X - (float)R1;
+            p_A2.Y = p4.Y - (float)(2d * R1);
+            p_A3.X = p9.X - (float)R2;
+            p_A3.Y = p9.Y - (float)(2d * R2);
+            p_A4.X = p10.X - (float)R2;
+            p_A4.Y = p10.Y;
+
+            //DrawArc(g, p, p_A1, R1, -90, -(a1 * 0.5));
+            //DrawArc(g, p, p_A2, R1, 90, (a1 * 0.5));
+            //DrawArc(g, p, p_A3, R2, 90, -(a1 * 0.5));
+            //DrawArc(g, p, p_A4, R2, -90, (a1 * 0.5));
+
+            fPos = p9.X;
+            //fPosBgn[nStep] = p_t3.X;                                          // 圆柱起点位置
+            //fPosEnd[nStep] = p_t1.X;                                          // 锥角起点位置
+            return fPos;
+        }
+
+        #endregion
 
         #region 三角函数
 
