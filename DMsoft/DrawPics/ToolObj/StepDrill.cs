@@ -27,6 +27,7 @@ namespace DrawPics.ToolObj
 
         public double[] arrD = new double[STEP_NUM];            // 大端直径
         public double[] arrH = new double[STEP_NUM];            // 中间直径
+        public double[] arrL = new double[STEP_NUM];            // 长度
         public double[] arrA1 = new double[STEP_NUM];           // 锥角1
         public double[] arrA2 = new double[STEP_NUM];           // 锥角2
         public double[] arrR1 = new double[STEP_NUM];           // 圆角1
@@ -58,6 +59,9 @@ namespace DrawPics.ToolObj
 
             for (int i = 0; i < STEP_NUM; i++)
             {
+                this.arrShape[i] = i + 1;
+                this.arrLen[i] = i + 1;
+
                 this.arrD[i] = (D - topD) / ns + topD;
                 this.arrH[i] = 0.5 * (D - topD) / ns + topD;
                 this.arrA1[i] = 90d;
@@ -79,6 +83,7 @@ namespace DrawPics.ToolObj
 
                 this.arrD[i] = (d - td) / ns + td;
                 this.arrH[i] = 0.5 * (d - td) / ns + td;
+                this.arrL[i] = 5 * (i + 1);
                 this.arrA1[i] = 90d;
                 this.arrA2[i] = 120d;
                 this.arrR1[i] = 1d;
