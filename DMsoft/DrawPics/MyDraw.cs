@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DrawPics.ToolObj;
+using DrawPics.Test;
 
 namespace DrawPics
 {
@@ -542,5 +543,15 @@ namespace DrawPics
         }
 
         #endregion 
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            MultiLan ml = new MultiLan();
+            ml.ShowDialog();
+
+            this.Show();
+        }
     }
 }

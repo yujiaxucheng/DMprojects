@@ -43,6 +43,7 @@
             this.C5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nRate = new System.Windows.Forms.NumericUpDown();
             this.lrate = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nRate)).BeginInit();
@@ -173,11 +174,22 @@
             this.lrate.TabIndex = 16;
             this.lrate.Text = "比例";
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(1196, 3);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 17;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // MyDraw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 759);
+            this.ClientSize = new System.Drawing.Size(1272, 750);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.lrate);
             this.Controls.Add(this.nRate);
             this.Controls.Add(this.dgvGrid);
@@ -213,6 +225,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C3;
         private System.Windows.Forms.DataGridViewTextBoxColumn C4;
         private System.Windows.Forms.DataGridViewTextBoxColumn C5;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
