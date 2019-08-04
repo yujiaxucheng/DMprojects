@@ -13,20 +13,63 @@ namespace DrawPics.Test
 {
     public partial class MultiLan : Form
     {
+        private int iLan = Language.ZHS;
+        private int[] arrLen = new int[100];                        // 存放翻译文字长度
+
         public MultiLan()
         {
             InitializeComponent();
             InitLan();
         }
 
+        /// <summary>
+        /// 初始化语言
+        /// </summary>
         private void InitLan()
         {
-            List<Control> lst_Ctrl = new List<Control>();
-            Dictionary<string, string> tDic = new Dictionary<string, string>();
+            string lanName = "中文简体";                                                // 语言名称
+
+            switch (iLan)
+            {
+                case Language.ZHS:
+                default:
+                    lanName = "中文简体";
+                    break;
+                case Language.ZHC:
+                    lanName = "中文繁体";
+                    break;
+                case Language.ENG:
+                    lanName = "英文";
+                    break;
+            }
+            this.cbLan.Text = lanName;
+        }
+
+        /// <summary>
+        /// 修改界面语言
+        /// </summary>
+        /// <param name="ilan">语言代码</param>
+        private void ChangeLan(int ilan)
+        {
+            string fileName = "ZHS";                                                // 文件名
+            List<Control> lst_Ctrl = new List<Control>();                           // 控件列表
+            Dictionary<string, string> tDic = new Dictionary<string, string>();     // 键值对
 
             Label l;
 
-            tDic = CRandW.GetContFromFile("ENG");
+            switch(ilan)
+            {
+                case Language.ZHS:
+                    fileName = "ZHS";
+                    break;
+                case Language.ZHC:
+                    fileName = "ZHC";
+                    break;
+                case Language.ENG:
+                    fileName = "ENG";
+                    break;
+            }
+            tDic = CRandW.GetContFromFile(fileName);
 
             lst_Ctrl = CRandW.getAllConstrols(this);
 
@@ -40,7 +83,6 @@ namespace DrawPics.Test
                     }
                 }
 
-                //MessageBox.Show(lst_Ctrl[i].GetType().Name.ToString());
                 if (lst_Ctrl[i].GetType().Name.ToString() == "Label")
                 {
                     l = (Label)(lst_Ctrl[i]);
@@ -59,6 +101,19 @@ namespace DrawPics.Test
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        // 测试按钮
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            this.label3.Text = "文字长度：" + this.label1.Text.Length.ToString() + Environment.NewLine + "文字长度：" + this.label2.Text.Length.ToString();
+        }
+
+        // 多语言选择
+        private void cbLan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.iLan = this.cbLan.SelectedIndex;
+            ChangeLan(this.iLan);
         }
     }
 }

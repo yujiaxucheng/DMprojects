@@ -34,12 +34,14 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.cbLan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 31);
+            this.label1.Location = new System.Drawing.Point(71, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 1;
@@ -48,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 61);
+            this.label2.Location = new System.Drawing.Point(71, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 20);
             this.label2.TabIndex = 2;
@@ -56,14 +58,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(239, 28);
+            this.textBox1.Location = new System.Drawing.Point(241, 68);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 30);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(239, 61);
+            this.textBox2.Location = new System.Drawing.Point(241, 101);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 30);
             this.textBox2.TabIndex = 1;
@@ -80,17 +82,42 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.AutoEllipsis = true;
             this.label3.Location = new System.Drawing.Point(611, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
+            this.label3.Size = new System.Drawing.Size(336, 81);
             this.label3.TabIndex = 4;
             this.label3.Text = "label3";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(389, 156);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(139, 56);
+            this.btnTest.TabIndex = 5;
+            this.btnTest.Text = "Show";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // cbLan
+            // 
+            this.cbLan.FormattingEnabled = true;
+            this.cbLan.Items.AddRange(new object[] {
+            "中文简体",
+            "中文繁体",
+            "英文"});
+            this.cbLan.Location = new System.Drawing.Point(75, 23);
+            this.cbLan.Name = "cbLan";
+            this.cbLan.Size = new System.Drawing.Size(121, 28);
+            this.cbLan.TabIndex = 6;
+            this.cbLan.SelectedIndexChanged += new System.EventHandler(this.cbLan_SelectedIndexChanged);
             // 
             // MultiLan
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1284, 662);
+            this.Controls.Add(this.cbLan);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.textBox2);
@@ -113,5 +140,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.ComboBox cbLan;
     }
 }

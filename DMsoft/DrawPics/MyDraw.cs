@@ -52,8 +52,6 @@ namespace DrawPics
 
             DrawCoor(pbMain.CreateGraphics(), p);
 
-            //Draw(pbMain.CreateGraphics(), p);
-
             StepDrill msd = new StepDrill(20, 10);
             msd.Draw(pbMain.CreateGraphics(), p);
 

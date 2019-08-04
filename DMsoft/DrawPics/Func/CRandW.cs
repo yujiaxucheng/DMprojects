@@ -22,8 +22,12 @@ namespace DrawPics.Func
         /// <returns>键值对字典表</returns>
         public static Dictionary<string, string> GetContFromFile(string iniFileName)
         {
-            string fileName = @"D:\DMprojects\DMprojects\DMsoft\DrawPics\Files\" + iniFileName + @".lan";
+            string tmpPath = AppDomain.CurrentDomain.BaseDirectory;
+            string fileName = AppDomain.CurrentDomain.BaseDirectory + iniFileName + @".lan";
 
+            tmpPath = tmpPath.Substring(0, tmpPath.IndexOf("bin")) + @"Files\";
+            fileName = tmpPath + iniFileName + @".lan";
+            
             Dictionary<string, string> dicStrStr = new Dictionary<string, string>();
             FileStream fs = new FileStream(fileName, FileMode.Open);
             StreamReader sr = new StreamReader(fs);
