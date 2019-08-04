@@ -58,8 +58,6 @@ namespace DrawPics.Test
         // 关闭
         private void btnClose_Click(object sender, EventArgs e)
         {
-            byte[] bytes = System.Text.Encoding.Unicode.GetBytes("　");
-            MessageBox.Show(bytes[0] + "" + bytes[1]);
             this.Dispose();
         }
     }

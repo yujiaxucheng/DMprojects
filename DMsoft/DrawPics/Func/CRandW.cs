@@ -13,7 +13,7 @@ namespace DrawPics.Func
     /// </summary>
     public class CRandW
     {
-        static List<Control> ListCtrl = new List<Control>();        //存放控件
+        public static List<Control> ListCtrl = new List<Control>();        //存放控件
 
         /// <summary>
         /// 获取指定文件内容到字典中
@@ -61,5 +61,6 @@ namespace DrawPics.Func
             }
             return ListCtrl;
         }
+
     }
 }
