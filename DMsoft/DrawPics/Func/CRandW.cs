@@ -66,5 +66,20 @@ namespace DrawPics.Func
             return ListCtrl;
         }
 
+        /// <summary>
+        /// 根据字符串内容长短返回相应字体大小
+        /// </summary>
+        /// <param name="cont">字符串内容</param>
+        /// <returns>字符串字体</returns>
+        public static float CalcSize(string cont)
+        {
+            float size = 12f;
+            int width;
+
+            width = cont.Length / 10;
+            size -= width;
+
+            return size;
+        }
     }
 }

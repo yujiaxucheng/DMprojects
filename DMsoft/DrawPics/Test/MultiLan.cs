@@ -87,8 +87,9 @@ namespace DrawPics.Test
                 {
                     l = (Label)(lst_Ctrl[i]);
                     l.AutoEllipsis = true;
-                    l.AutoSize = false;
-                    l.Size = new Size(152, 16);
+                    l.AutoSize = true;
+                    //l.Size = new Size(152, 16);
+                    l.Font = new System.Drawing.Font("Arial", CRandW.CalcSize(lst_Ctrl[i].Text), System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)));
                 }
             }
             Console.WriteLine("实现控件多语言。");
@@ -114,6 +115,11 @@ namespace DrawPics.Test
         {
             this.iLan = this.cbLan.SelectedIndex;
             ChangeLan(this.iLan);
+        }
+
+        private void MultiLan_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
