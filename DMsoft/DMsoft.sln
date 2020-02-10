@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawPics", "DrawPics\DrawPi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreManage", "ScoreManage\ScoreManage.csproj", "{B4DC340E-BDFC-4776-8EFD-4DE734591A45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{0BAD43F4-4ACF-4B85-B2AA-56FD158045B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,12 @@ Global
 		{532F2DAD-3BE2-4BF5-9C7F-11AB38EEB8F3}.Debug|x86.Build.0 = Debug|x86
 		{532F2DAD-3BE2-4BF5-9C7F-11AB38EEB8F3}.Release|x86.ActiveCfg = Release|x86
 		{532F2DAD-3BE2-4BF5-9C7F-11AB38EEB8F3}.Release|x86.Build.0 = Release|x86
+		{B4DC340E-BDFC-4776-8EFD-4DE734591A45}.Debug|x86.ActiveCfg = Debug|x86
+		{B4DC340E-BDFC-4776-8EFD-4DE734591A45}.Release|x86.ActiveCfg = Release|x86
+		{0BAD43F4-4ACF-4B85-B2AA-56FD158045B7}.Debug|x86.ActiveCfg = Debug|x86
+		{0BAD43F4-4ACF-4B85-B2AA-56FD158045B7}.Debug|x86.Build.0 = Debug|x86
+		{0BAD43F4-4ACF-4B85-B2AA-56FD158045B7}.Release|x86.ActiveCfg = Release|x86
+		{0BAD43F4-4ACF-4B85-B2AA-56FD158045B7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

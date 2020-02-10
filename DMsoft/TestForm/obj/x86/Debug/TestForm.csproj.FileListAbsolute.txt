@@ -1,0 +1,7 @@
+D:\MyGitHub\DMprojects\DMsoft\TestForm\bin\Debug\TestForm.exe
+D:\MyGitHub\DMprojects\DMsoft\TestForm\bin\Debug\TestForm.pdb
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.Form1.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.Properties.Resources.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.csproj.GenerateResource.Cache
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.exe
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.pdb
