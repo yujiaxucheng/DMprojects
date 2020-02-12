@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace TestForm
 {
-    public partial class Form1 : Form
+    public partial class defaultForm : Form
     {
         private string fName = "";
 
-        public Form1()
+        public defaultForm()
         {
             InitializeComponent();
         }
 
-        #region 代码参考出处
+        #region 调用对话框
 
         // 原文链接：https://blog.csdn.net/weixin_44490080/article/details/100712683
 
@@ -51,5 +51,19 @@ namespace TestForm
         }
 
         #endregion
+
+        // 开始操作
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            ExcelOperator myExcel = new ExcelOperator();
+
+            //myExcel.CreateExcel();
+            //myExcel.SaveExcel(@"D:\DiskE\Test" + @"\TestSaveExcel.xls");
+
+            myExcel.ShowExcelInfo(@"D:\DiskE\Test" + @"\TestSaveExcel.xls");
+
+            myExcel.QuitExcel();
+        }
+
     }
 }
