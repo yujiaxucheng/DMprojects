@@ -45,7 +45,7 @@ namespace TestForm
                     break;
                 case 7:
                     intPara1 = functions.ConvertString2Int(this.tbPara1.Text);
-                    this.lInfo.Text = C0_TestAllInstance_Main.PrintAnimalName((C1_Enum.Animal)intPara1);
+                    this.lInfo.Text = C0_TestAllInstance_Main.Ins7_PrintAnimalName((C1_Enum.Animal)intPara1);
                     break;
             }
         }
