@@ -49,15 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C0_TestAllInstance_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C0_TestAllInstance_MainForm.Designer.cs">
+      <DependentUpon>C0_TestAllInstance_MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C0_TestAllInstance_Main.cs" />
+    <Compile Include="C1_Enum.cs" />
     <Compile Include="defaultForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="defaultForm.Designer.cs">
       <DependentUpon>defaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="functions.cs" />
     <Compile Include="OperateExcel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="C0_TestAllInstance_MainForm.resx">
+      <DependentUpon>C0_TestAllInstance_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="defaultForm.resx">
       <DependentUpon>defaultForm.cs</DependentUpon>
     </EmbeddedResource>

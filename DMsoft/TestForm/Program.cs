@@ -15,7 +15,8 @@ namespace TestForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new defaultForm());
+            //Application.Run(new defaultForm());
+            Application.Run(new C0_TestAllInstance_MainForm());
         }
     }
 }
