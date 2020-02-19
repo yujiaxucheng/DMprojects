@@ -1,0 +1,8 @@
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.Properties.Resources.resources
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.snakeGame.resources
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.csproj.GenerateResource.Cache
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\bin\Debug\DMsGame.exe
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\bin\Debug\DMsGame.pdb
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.exe
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.pdb
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.RUAM.resources

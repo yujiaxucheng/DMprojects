@@ -9,3 +9,4 @@ D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.defaultForm.resour
 C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.exe
 C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.pdb
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.frmSnake.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.csprojResolveAssemblyReference.cache

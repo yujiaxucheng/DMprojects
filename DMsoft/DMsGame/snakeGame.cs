@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TestForm
+namespace DMsGame
 {
-    public partial class frmSnake : Form
+    public partial class snakeGame : Form
     {
         /// <summary>
         /// 上
@@ -40,7 +40,7 @@ namespace TestForm
         public int snakeDirection = DIR_RIGHT;                  // 存储方向键
         public bool flg = true;                                 // 标志
 
-        public frmSnake()
+        public snakeGame()
         {
             InitializeComponent();
         }
@@ -60,7 +60,7 @@ namespace TestForm
                 temp += 15;
             }
 
-            snakeDirection = DIR_RIGHT; 
+            snakeDirection = DIR_RIGHT;
             this.timer1.Enabled = true;
         }
 
@@ -85,7 +85,7 @@ namespace TestForm
 
             if (flg)
             {
-                ShowFood();//DrawFood(FoodLct.X, FoodLct.Y);  
+                ShowFood();
                 flg = false;
             }
 

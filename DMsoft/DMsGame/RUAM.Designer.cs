@@ -1,6 +1,6 @@
-﻿namespace TestForm
+﻿namespace DMsGame
 {
-    partial class frmSnake
+    partial class RUAM
     {
         /// <summary>
         /// Required designer variable.
@@ -29,41 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnStart = new System.Windows.Forms.Button();
+            this.t1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timer1
+            // t1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.t1.Tick += new System.EventHandler(this.t1_Tick);
             // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(795, 12);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "START";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // frmSnake
+            // RUAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 555);
-            this.Controls.Add(this.btnStart);
+            this.ClientSize = new System.Drawing.Size(432, 555);
             this.KeyPreview = true;
-            this.Name = "frmSnake";
-            this.Text = "frmSnake";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSnake_KeyDown);
+            this.Name = "RUAM";
+            this.Text = "是男人就勇下一百层";
+            this.Click += new System.EventHandler(this.RUAM_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ruam_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Timer t1;
     }
 }
