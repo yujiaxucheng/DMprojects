@@ -40,9 +40,9 @@
             // btnTestInstance
             // 
             this.btnTestInstance.Location = new System.Drawing.Point(59, 176);
-            this.btnTestInstance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTestInstance.Margin = new System.Windows.Forms.Padding(4);
             this.btnTestInstance.Name = "btnTestInstance";
-            this.btnTestInstance.Size = new System.Drawing.Size(94, 31);
+            this.btnTestInstance.Size = new System.Drawing.Size(108, 31);
             this.btnTestInstance.TabIndex = 0;
             this.btnTestInstance.Text = "测试实例按钮";
             this.btnTestInstance.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             // tbPara1
             // 
             this.tbPara1.Location = new System.Drawing.Point(266, 103);
-            this.tbPara1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPara1.Margin = new System.Windows.Forms.Padding(4);
             this.tbPara1.Name = "tbPara1";
             this.tbPara1.Size = new System.Drawing.Size(124, 30);
             this.tbPara1.TabIndex = 1;
@@ -69,7 +69,7 @@
             // nudInstanceNo
             // 
             this.nudInstanceNo.Location = new System.Drawing.Point(266, 33);
-            this.nudInstanceNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudInstanceNo.Margin = new System.Windows.Forms.Padding(4);
             this.nudInstanceNo.Maximum = new decimal(new int[] {
             300,
             0,
@@ -122,7 +122,7 @@
             this.Controls.Add(this.tbPara1);
             this.Controls.Add(this.btnTestInstance);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "C0_TestAllInstance_MainForm";
             this.Text = "C0_TestAllInstance_MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.nudInstanceNo)).EndInit();

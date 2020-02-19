@@ -63,6 +63,12 @@
     <Compile Include="defaultForm.Designer.cs">
       <DependentUpon>defaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSnake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSnake.Designer.cs">
+      <DependentUpon>frmSnake.cs</DependentUpon>
+    </Compile>
     <Compile Include="functions.cs" />
     <Compile Include="OperateExcel.cs" />
     <Compile Include="Program.cs" />
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="defaultForm.resx">
       <DependentUpon>defaultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSnake.resx">
+      <DependentUpon>frmSnake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

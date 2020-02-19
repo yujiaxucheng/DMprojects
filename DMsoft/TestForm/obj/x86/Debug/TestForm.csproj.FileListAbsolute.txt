@@ -8,3 +8,4 @@ D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.C0_TestAllInstance
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.defaultForm.resources
 C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.exe
 C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.pdb
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.frmSnake.resources

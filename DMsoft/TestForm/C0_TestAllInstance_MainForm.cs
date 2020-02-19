@@ -47,6 +47,10 @@ namespace TestForm
                     intPara1 = functions.ConvertString2Int(this.tbPara1.Text);
                     this.lInfo.Text = C0_TestAllInstance_Main.Ins7_PrintAnimalName((C1_Enum.Animal)intPara1);
                     break;
+                case 1:
+                    frmSnake snake = new frmSnake();
+                    snake.Show();
+                    break;
             }
         }
 
