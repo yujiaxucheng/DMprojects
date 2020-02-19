@@ -61,6 +61,7 @@ namespace DMsGame
             for (int i = 0; i < STEP_COUNT; i++)
             {
                 stepArr[i].X = rmd.Next(1, this.Width / 15 - 8) * 15;
+                stepArr[i].Y = (5 * i + 1) * 15;
             }
         }
 
@@ -113,7 +114,7 @@ namespace DMsGame
 
             for (i = 0; i < STEP_COUNT; i++)
             {
-                DrawStep(stepArr[i].X, (timeNum % 5) * 15 + i * 5 * 15);
+                DrawStep(stepArr[i].X, stepArr[i].Y += 15);
             }
         }
 
