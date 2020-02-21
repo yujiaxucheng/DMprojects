@@ -38,6 +38,8 @@ namespace DMsGame
  
         public int snakeLen = 6;                                // 蛇初始长度
         public int snakeDirection = DIR_RIGHT;                  // 存储方向键
+        public int score = 0;
+
         public bool flg = true;                                 // 标志
 
         public snakeGame()
@@ -64,13 +66,6 @@ namespace DMsGame
             this.timer1.Enabled = true;
         }
 
-        // 清除画面
-        public void ClearScreen()
-        {
-            Graphics g = this.CreateGraphics();
-            g.Clear(Control.DefaultBackColor); 
-        }
-
         /// <summary>  
         /// 时间事件           
         /// </summary>  
@@ -91,6 +86,7 @@ namespace DMsGame
 
             if (AteFoot(foodLct))
             {
+                this.lScore.Text = "分数：" + (++score).ToString();
                 ShowFood();
                 DrawFood(foodLct.X, foodLct.Y);
             }
@@ -103,15 +99,57 @@ namespace DMsGame
             {
                 this.timer1.Enabled = false;
                 MessageBox.Show("游戏结束！");
+                score = 0;
+                this.lScore.Text = "分数：" + score.ToString();
             }
         }
 
+        /// <summary>
+        /// 重写ProcessDialogKey，允许监听方向键
+        /// </summary>
+        protected override bool ProcessDialogKey(Keys keycode)
+        {
+            switch (keycode)
+            {
+                case Keys.Left:
+                case Keys.Up:
+                case Keys.Right:
+                case Keys.Down:
+                    return false;
+            }
+            return true;
+        }
+
         /// <summary>  
-        /// 画蛇身一个小方块           
+        /// 方向键
+        /// </summary>  
+        private void frmSnake_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+                snakeDirection = DIR_UP;
+            else if (e.KeyCode == Keys.Down)
+                snakeDirection = DIR_DOWN;
+            else if (e.KeyCode == Keys.Right)
+                snakeDirection = DIR_RIGHT;
+            else if (e.KeyCode == Keys.Left)
+                snakeDirection = DIR_LEFT;
+        }
+
+        /// <summary>
+        /// 清除画布
+        /// </summary>
+        public void ClearScreen()
+        {
+            Graphics g = this.pbMain.CreateGraphics();
+            g.Clear(Control.DefaultBackColor); 
+        }
+
+        /// <summary>  
+        /// 画一个小方块           
         /// </summary>  
         public void DrawShape(int x, int y)
         {
-            Graphics g = this.CreateGraphics();
+            Graphics g = this.pbMain.CreateGraphics();
             Pen pen = new Pen(Color.Blue, 2);
 
             g.DrawRectangle(pen, x, y, 15, 15);
@@ -123,7 +161,7 @@ namespace DMsGame
         /// </summary>  
         public void DrawFood(int x, int y)
         {
-            Graphics g = this.CreateGraphics();
+            Graphics g = this.pbMain.CreateGraphics();
             Pen pen = new Pen(Color.Red, 2);
 
             g.DrawRectangle(pen, x, y, 15, 15);
@@ -138,8 +176,8 @@ namespace DMsGame
             int x, y;
             Random rmd = new Random();
 
-            x = rmd.Next(0, this.Width / 15 - 1) * 15;
-            y = rmd.Next(0, this.Height / 15 - 2) * 15;
+            x = rmd.Next(0, this.pbMain.Width / 15 - 1) * 15;
+            y = rmd.Next(0, this.pbMain.Height / 15 - 2) * 15;
 
             //while (this.CheckInSnakeBody(x, y, 1))   
             //{            
@@ -190,37 +228,6 @@ namespace DMsGame
         }
 
         /// <summary>  
-        /// 按下方向键
-        /// </summary>  
-        private void frmSnake_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-                snakeDirection = DIR_UP;
-            else if (e.KeyCode == Keys.Down)
-                snakeDirection = DIR_DOWN;
-            else if (e.KeyCode == Keys.Right)
-                snakeDirection = DIR_RIGHT;
-            else if (e.KeyCode == Keys.Left)
-                snakeDirection = DIR_LEFT;
-        }
-
-        /// <summary>
-        /// 重写ProcessDialogKey，来允许监听方向键
-        /// </summary>
-        protected override bool ProcessDialogKey(Keys keycode)
-        {
-            switch (keycode)
-            {   
-                case Keys.Left:
-                case Keys.Up:
-                case Keys.Right:
-                case Keys.Down:
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>  
         /// 判断是否撞到自己
         /// </summary>  
         public bool CheckSnakeHeadInSnakeBody()
@@ -248,8 +255,8 @@ namespace DMsGame
         /// </summary>  
         public bool CheckSnakeBodyInFrm()
         {
-            if (this.snakeArr[0].X >= this.Width    || 
-                this.snakeArr[0].Y >= this.Height   || 
+            if (this.snakeArr[0].X >= this.pbMain.Width ||
+                this.snakeArr[0].Y >= this.pbMain.Height || 
                 this.snakeArr[0].X < 0              || 
                 this.snakeArr[0].Y < 0)
                 return true;

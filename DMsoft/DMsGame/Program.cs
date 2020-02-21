@@ -15,7 +15,8 @@ namespace DMsGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RUAM());
+            //Application.Run(new RUAM());      // 勇下百层
+            Application.Run(new snakeGame());   // 贪吃蛇
         }
     }
 }
