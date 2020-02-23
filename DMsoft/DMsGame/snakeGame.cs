@@ -38,7 +38,9 @@ namespace DMsGame
  
         public int snakeLen = 6;                                // 蛇初始长度
         public int snakeDirection = DIR_RIGHT;                  // 存储方向键
-        public int score = 0;
+        public int score = 0;                                   // 当前分数
+        public int historyScore = 0;                            // 历史最高分
+        public int speed = 1;
 
         public bool flg = true;                                 // 标志
 
@@ -52,6 +54,7 @@ namespace DMsGame
         {
             int temp = 0;
             snakeLen = 6;
+            score = 0;
 
             ClearScreen();
 
@@ -63,6 +66,8 @@ namespace DMsGame
             }
 
             snakeDirection = DIR_RIGHT;
+
+            this.timer1.Interval = 1000 / speed;
             this.timer1.Enabled = true;
         }
 
@@ -99,8 +104,15 @@ namespace DMsGame
             {
                 this.timer1.Enabled = false;
                 MessageBox.Show("游戏结束！");
+
+                if (score > historyScore)
+                {
+                    historyScore = score;
+                }
+
                 score = 0;
                 this.lScore.Text = "分数：" + score.ToString();
+                this.lhisScore.Text = "历史最高分：" + historyScore.ToString();
             }
         }
 
@@ -281,6 +293,13 @@ namespace DMsGame
             }
             else
                 return false;
+        }
+
+        // 控制蛇的速度
+        private void nudSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            speed = Convert.ToInt32(this.nudSpeed.Value);
+            this.timer1.Interval = 500 / speed;
         }
     }
 }
