@@ -59,7 +59,7 @@
             // lInfo
             // 
             this.lInfo.AutoSize = true;
-            this.lInfo.Location = new System.Drawing.Point(55, 279);
+            this.lInfo.Location = new System.Drawing.Point(469, 33);
             this.lInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lInfo.Name = "lInfo";
             this.lInfo.Size = new System.Drawing.Size(49, 20);
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 533);
+            this.ClientSize = new System.Drawing.Size(930, 533);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudInstanceNo);

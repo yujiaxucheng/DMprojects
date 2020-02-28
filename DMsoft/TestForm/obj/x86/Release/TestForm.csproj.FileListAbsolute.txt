@@ -1,0 +1,9 @@
+D:\MyGitHub\DMprojects\DMsoft\TestForm\bin\Release\TestForm.exe
+D:\MyGitHub\DMprojects\DMsoft\TestForm\bin\Release\TestForm.pdb
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.C0_TestAllInstance_MainForm.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.defaultForm.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.frmSnake.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.Properties.Resources.resources
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.csproj.GenerateResource.Cache
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.exe
+D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.pdb

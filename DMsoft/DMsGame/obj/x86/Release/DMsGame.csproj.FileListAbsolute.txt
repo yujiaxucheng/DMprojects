@@ -6,3 +6,4 @@ D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Release\DMsGame.csproj.GenerateRes
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Release\DMsGame.exe
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Release\DMsGame.pdb
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Release\DMsGame.RUAM.resources
+D:\MyGitHub\DMprojects\DMsoft\DMsGame\bin\Release\DMsGame.exe.config

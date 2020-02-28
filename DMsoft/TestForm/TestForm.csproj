@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="C0_TestAllInstance_Main.cs" />
     <Compile Include="C1_Enum.cs" />
+    <Compile Include="C38_Dictionary.cs" />
     <Compile Include="defaultForm.cs">
       <SubType>Form</SubType>
     </Compile>

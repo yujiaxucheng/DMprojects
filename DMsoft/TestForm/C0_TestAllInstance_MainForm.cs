@@ -47,9 +47,20 @@ namespace TestForm
                     intPara1 = functions.ConvertString2Int(this.tbPara1.Text);
                     this.lInfo.Text = C0_TestAllInstance_Main.Ins7_PrintAnimalName((C1_Enum.Animal)intPara1);
                     break;
-                case 1:
-                    frmSnake snake = new frmSnake();
-                    snake.Show();
+                case 38:
+                    if (string.IsNullOrEmpty(this.tbPara1.Text))
+                        this.lInfo.Text = C0_TestAllInstance_Main.Ins38_PrintProvinces();
+                    else
+                        this.lInfo.Text = C0_TestAllInstance_Main.Ins38_GetCitysFromProvince(this.tbPara1.Text);
+                    break;
+                case 40:
+                    this.lInfo.Text = C0_TestAllInstance_Main.Ins40_TestQueue();
+                    break;
+                case 41:
+                    if (string.IsNullOrEmpty(this.tbPara1.Text))
+                        MessageBox.Show("需要在para1对话框输入带括号表达式！");
+                    else
+                        this.lInfo.Text = C0_TestAllInstance_Main.Ins41_TestStack(this.tbPara1.Text);
                     break;
             }
         }
