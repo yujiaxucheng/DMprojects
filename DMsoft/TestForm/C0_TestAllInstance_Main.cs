@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using TestForm.DesignPattener;
+
 namespace TestForm
 {
     /// <summary>
@@ -228,5 +230,28 @@ namespace TestForm
 
             return strValue;
         }
+
+        #region 设计模式
+
+        /// <summary>
+        /// 简单工厂模式
+        /// </summary>
+        /// <returns></returns>
+        public static string Ins88_SimpleFactory()
+        {
+            string strVal = "";
+
+            myFactory f = new myFactory();
+
+            Tool xidao = f.Produce("EndMill");
+            strVal += "\n" + xidao.Create();
+
+            Tool qiudao = f.Produce("BallMill");
+            strVal += "\n" + qiudao.Create();
+
+            return strVal;
+        }
+
+        #endregion
     }
 }

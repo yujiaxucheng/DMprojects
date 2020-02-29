@@ -64,6 +64,7 @@
     <Compile Include="defaultForm.Designer.cs">
       <DependentUpon>defaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesignPattener\DP_SimpleFactory.cs" />
     <Compile Include="frmSnake.cs">
       <SubType>Form</SubType>
     </Compile>

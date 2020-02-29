@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using TestForm.DesignPattener;
+
 namespace TestForm
 {
     public partial class C0_TestAllInstance_MainForm : Form
@@ -61,6 +63,12 @@ namespace TestForm
                         MessageBox.Show("需要在para1对话框输入带括号表达式！");
                     else
                         this.lInfo.Text = C0_TestAllInstance_Main.Ins41_TestStack(this.tbPara1.Text);
+                    break;
+
+                // 简单工厂模式
+                case 88:
+                    //this.lInfo.Text = C0_TestAllInstance_Main.Ins88_SimpleFactory();
+                    this.lInfo.Text = DP_SimpleFactory.Ins88_SimpleFactory();
                     break;
             }
         }
