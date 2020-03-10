@@ -117,6 +117,7 @@ namespace DrawPics.Test
             ChangeLan(this.iLan);
         }
 
+        // 加载页面
         private void MultiLan_Load(object sender, EventArgs e)
         {
 
