@@ -64,7 +64,8 @@
     <Compile Include="defaultForm.Designer.cs">
       <DependentUpon>defaultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DesignPattener\DP_SimpleFactory.cs" />
+    <Compile Include="DesignPatterns\DP_SimpleFactory.cs" />
+    <Compile Include="DP_Strategy.cs" />
     <Compile Include="frmSnake.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +76,18 @@
     <Compile Include="OperateExcel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="waitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waitingForm.Designer.cs">
+      <DependentUpon>waitingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winWeb.Designer.cs">
+      <DependentUpon>winWeb.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="C0_TestAllInstance_MainForm.resx">
       <DependentUpon>C0_TestAllInstance_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +106,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="waitingForm.resx">
+      <DependentUpon>waitingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winWeb.resx">
+      <DependentUpon>winWeb.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
