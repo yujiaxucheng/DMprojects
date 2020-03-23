@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMsGame", "DMsGame\DMsGame.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Func_MultiLan", "Func_MultiLan\Func_MultiLan.csproj", "{33E1654F-80C0-41AE-B7C5-958DC2B48F2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNCneo", "CNCneo\CNCneo.csproj", "{DEB6E63D-86BB-4E25-85AA-0A5157C1F0B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -35,6 +37,10 @@ Global
 		{33E1654F-80C0-41AE-B7C5-958DC2B48F2C}.Debug|x86.Build.0 = Debug|x86
 		{33E1654F-80C0-41AE-B7C5-958DC2B48F2C}.Release|x86.ActiveCfg = Release|x86
 		{33E1654F-80C0-41AE-B7C5-958DC2B48F2C}.Release|x86.Build.0 = Release|x86
+		{DEB6E63D-86BB-4E25-85AA-0A5157C1F0B5}.Debug|x86.ActiveCfg = Debug|x86
+		{DEB6E63D-86BB-4E25-85AA-0A5157C1F0B5}.Debug|x86.Build.0 = Debug|x86
+		{DEB6E63D-86BB-4E25-85AA-0A5157C1F0B5}.Release|x86.ActiveCfg = Release|x86
+		{DEB6E63D-86BB-4E25-85AA-0A5157C1F0B5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

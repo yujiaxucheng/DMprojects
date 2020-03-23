@@ -15,7 +15,7 @@ namespace TestForm
     {
         private const float CIR_ANGLE = 360;        // 360°
         private int tickNo = 1;                     // 计次数
-        private int subNum = 10;                    // 圈圈分subNum段
+        private int subNum = 12;                    // 圈圈分subNum段
 
         public waitingForm()
         {
@@ -50,6 +50,7 @@ namespace TestForm
 
             SetCoordinate(g, p0);                                   // 设置坐标原点
             DrawWaiting(g, tickNo % subNum);                        // 开始作图
+            //DrawIronCircle(g, tickNo % subNum);                        // 开始作图
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace TestForm
         {
             float lineThickness = 50f;                          // 线粗细大小
             float waitingR = 100f;                              // 等待圈圈的半径
-            Color lineColor = Color.Black;                      // 线颜色
+            Color lineColor = Color.Gray;                       // 线颜色
             Pen p = new Pen(lineColor, lineThickness);          // 画笔
 
             p.Color = Color.FromArgb(255, lineColor);                                       // 画笔原始色
@@ -82,6 +83,39 @@ namespace TestForm
         {
             g.Transform = new Matrix(1, 0, 0, 1, p0.X, p0.Y);
             g.Clear(Color.LightGray);
+        }
+
+        // 绘制反应堆
+        public void DrawIronCircle(Graphics g, int no)
+        {
+            float lineThickness = 50f;                          // 线粗细大小
+            float waitingR = 100f;                              // 等待圈圈的半径
+            //Color lineColor = Color.FromArgb(220, 220, 220);    // 线颜色
+            Color lineColor = Color.White;                      // 线颜色
+            Pen p = new Pen(lineColor, lineThickness);          // 画笔
+
+            Pen p1 = new Pen(Color.Blue, 2f);
+            g.DrawArc(p1, -125, -125, 250, 250, 0, 360);
+            g.DrawArc(p1, -75, -75, 150, 150, 0, 360);
+
+            p.Color = Color.FromArgb(255, lineColor);                                       // 画笔原始色
+            g.DrawArc(p, -waitingR, -waitingR, 2f * waitingR, 2f * waitingR, no * CIR_ANGLE / subNum, CIR_ANGLE / subNum / 2);  // 绘制等待圈圈首个圆弧
+            for (int i = 1; i < subNum; i++)
+            {
+                p.Color = Color.FromArgb(255 - i * 255 / (subNum + 1), lineColor);                                      // 原始色逐渐淡化
+                g.DrawArc(p, -waitingR, -waitingR, 2f * waitingR, 2f * waitingR, (no + i) * CIR_ANGLE / subNum, CIR_ANGLE / subNum / 2);    // 依次绘制等待圈圈后续圆弧
+            }
+
+            // 画内部圈
+            //p.Width = 25f;
+            g.DrawArc(p, -waitingR / 2, -waitingR / 2, waitingR, waitingR, no * CIR_ANGLE / subNum / 4, CIR_ANGLE / subNum / 8);  // 绘制等待圈圈首个圆弧
+            for (int i = 1; i < subNum * 4; i++)
+            {
+                g.DrawArc(p, -waitingR / 2, -waitingR / 2, waitingR, waitingR, (no + i) * CIR_ANGLE / subNum / 4, CIR_ANGLE / subNum / 8);    // 依次绘制等待圈圈后续圆弧
+            }
+
+            p1.Width = 5f;
+            g.DrawArc(p1, -45, -45, 90, 90, 0, 360);
         }
     }
 }

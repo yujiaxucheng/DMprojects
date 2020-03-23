@@ -39,7 +39,7 @@
             // waitingForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(282, 255);
+            this.ClientSize = new System.Drawing.Size(300, 300);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "waitingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -1,0 +1,7 @@
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\bin\Debug\CNCneo.exe
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\bin\Debug\CNCneo.pdb
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Properties.Resources.resources
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.winMain.resources
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.csproj.GenerateResource.Cache
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.exe
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.pdb
