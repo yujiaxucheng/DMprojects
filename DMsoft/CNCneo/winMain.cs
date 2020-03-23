@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using CNCneo.AWheel;
+
 namespace CNCneo
 {
     public partial class winMain : Form
@@ -14,13 +16,14 @@ namespace CNCneo
         public winMain()
         {
             InitializeComponent();
-            InitFormSize();
+            InitForm();
+            InitByProduct();
         }
 
         /// <summary>
         /// 初始化界面控件
         /// </summary>
-        private void InitFormSize()
+        private void InitForm()
         {
             int headWidth = this.Width * 1;
             int headHeight = this.Height * 2 / 16 ;
@@ -36,7 +39,7 @@ namespace CNCneo
             this.pHead.Size = new Size(headWidth, headHeight);
             this.lVersion.Location = new Point(0, headHeight - this.lVersion.Size.Height - 5);
             this.lMachineNo.Location = new Point(headWidth / 2 - this.lMachineNo.Size.Width, headHeight - this.lMachineNo.Size.Height - 5);
-            this.cbLan.Location = new Point(headWidth - this.cbLan.Size.Width - 15, headHeight - this.cbLan.Size.Height - 5);
+            this.cbLan.Location = new Point(productWidth, headHeight - this.cbLan.Size.Height - 5);
             this.cbLan.DropDownStyle = ComboBoxStyle.DropDownList;
 
             // 产品区Panel位置及大小
@@ -62,12 +65,41 @@ namespace CNCneo
             // 机床Panel位置及大小
             this.pMachine.Location = new Point(productWidth, headHeight);
             this.pMachine.Size = new Size(machineWidth, machineHeight);
+
+            // 开始绘制砂轮组
+            this.tDrawWhlGrp.Enabled = true;
+        }
+
+        /// <summary>
+        /// 根据产品初始化界面
+        /// </summary>
+        private void InitByProduct()
+        { 
+            this.cbLan.SelectedIndex = 0;       // 临时
+        }
+
+        // 定时器绘制砂轮组
+        private void tDrawWhlGrp_Tick(object sender, EventArgs e)
+        {
+            CWheel whlGrp1 = new CW1(62.5, 30);
+            CWheel whlGrp2 = new CRing(40, 10);
+            Point p0 = new Point(this.pbWhlGrp1.Width / 4, this.pbWhlGrp1.Height / 2);
+
+            whlGrp1.Draw(this.pbWhlGrp1.CreateGraphics(), p0);
+            whlGrp2.Draw(this.pbWhlGrp2.CreateGraphics(), p0);
+            this.tDrawWhlGrp.Enabled = false;
         }
 
         // 退出软件
         private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        // 测试
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
