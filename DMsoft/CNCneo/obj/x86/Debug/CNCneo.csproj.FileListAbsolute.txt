@@ -5,3 +5,4 @@ D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.winMain.resources
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.csproj.GenerateResource.Cache
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.exe
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.pdb
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Test.resources
