@@ -101,7 +101,7 @@ namespace Func_MultiLan
         {
             string tmpPath = AppDomain.CurrentDomain.BaseDirectory;
             string fileName = AppDomain.CurrentDomain.BaseDirectory + iniFileName + @".ini";
-
+            
             tmpPath = tmpPath.Substring(0, tmpPath.IndexOf("bin")) + @"res\";
             fileName = tmpPath + iniFileName + @".ini";
 

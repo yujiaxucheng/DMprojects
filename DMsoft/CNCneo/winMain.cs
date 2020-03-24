@@ -97,20 +97,15 @@ namespace CNCneo
             whlGrp1[3] = new CRing(35, 25);
             whlGrp1[4] = new CW3(120, 60, 60, 55, 45, 15, 20, 45);
             whlGrp1[5] = new CRing(35, 25);
+
             for (int i = 0; i < whlGrp1.Length; i++)
             {
                 if (whlGrp1[i] == null)
                     break;
-                else
-                {
-                    if (i > 0)
-                    {
-                        whlGrp1[i].StartPos = whlGrp1[i - 1].EndPos;
-                        whlGrp1[i].Draw(g, p0);
-                    }
-                    else
-                        whlGrp1[i].Draw(g, p0);
-                }
+
+                if (i > 0)
+                    whlGrp1[i].StartPos = whlGrp1[i - 1].EndPos;
+                whlGrp1[i].Draw(g, p0);
             }
 
             g = this.pbWhlGrp2.CreateGraphics();
@@ -153,7 +148,7 @@ namespace CNCneo
         // 测试
         private void btnTest_Click(object sender, EventArgs e)
         {
-
+            //MessageBox.Show(CConst.LAN_FILE_PATH);
         }
 
         // 界面加载事件

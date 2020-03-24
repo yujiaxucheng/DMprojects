@@ -19,7 +19,7 @@ namespace CNCneo.AWheel
         private double radius = 60;                 // 砂轮半径
         private double thickness = 30;              // 砂轮厚度
         private int startPos = 0;                   // 起始安装位置
-        private int endPos = 0;                   // 结束安装位置
+        private int endPos = 0;                     // 结束安装位置
 
         public int WhlType
         {
