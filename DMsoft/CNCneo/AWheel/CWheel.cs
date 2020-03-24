@@ -19,6 +19,7 @@ namespace CNCneo.AWheel
         private double radius = 60;                 // 砂轮半径
         private double thickness = 30;              // 砂轮厚度
         private int startPos = 0;                   // 起始安装位置
+        private int endPos = 0;                   // 结束安装位置
 
         public int WhlType
         {
@@ -48,6 +49,12 @@ namespace CNCneo.AWheel
         {
             get { return startPos; }
             set { startPos = value; }
+        }
+
+        public int EndPos
+        {
+            get { return endPos; }
+            set { endPos = value; }
         }
 
         /// <summary>
@@ -84,7 +91,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
   
-            CDraw.DrawCoordinate(g, p0, p);                 // 绘制坐标
+            CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -93,6 +100,8 @@ namespace CNCneo.AWheel
             p2 = new Point(base.StartPos, -(int)base.Radius);
             p3 = new Point(base.StartPos + (int)base.Thickness, (int)base.Radius);
             p4 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
+
+            EndPos = p3.X;
 
             g.DrawLine(p, p1, p2);
             g.DrawLine(p, p3, p4);
@@ -108,6 +117,13 @@ namespace CNCneo.AWheel
     {
         private double radiusS = 60;                    // 砂轮较小一面半径默认值
         private bool f2b = true;                        // 砂轮正装还是倒装
+        
+        public CW2(double shortR, double longR, double t)
+        {
+            this.RadiusS = shortR;
+            this.Radius = longR;
+            this.Thickness = t;
+        }
 
         public double RadiusS {
             get { return radiusS; }
@@ -126,7 +142,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
 
-            CDraw.DrawCoordinate(g, p0, p);                 // 绘制坐标
+            CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -147,6 +163,8 @@ namespace CNCneo.AWheel
             p3 = new Point(base.StartPos + (int)base.Thickness, rightR);
             p4 = new Point(base.StartPos + (int)base.Thickness, -rightR);
 
+            EndPos = p3.X;
+
             g.DrawLine(p, p1, p2);
             g.DrawLine(p, p3, p4);
             g.DrawLine(p, p1, p3);
@@ -159,9 +177,79 @@ namespace CNCneo.AWheel
     /// </summary>
     class CW3 : CWheel
     {
+        private double radiusS = 60;                    // 砂轮较小一面半径默认值
+        private double radiusI = 40;                    // 砂轮内部半径
+        private double mainThickness = 50;              // 砂轮主要厚度
+        private double edgeThickness = 10;              // 砂轮边缘厚度
+        private double edgeWidth = 20;                  // 砂轮边缘宽度
+        private double ang = 45;                        // 倾斜度数
+
+        public double RadiusS
+        {
+            get { return radiusS; }
+            set { radiusS = value; }
+        }
+
+        public double RadiusI
+        {
+            get { return radiusI; }
+            set { radiusI = value; }
+        }
+
+        public double MainThickness
+        {
+            get { return mainThickness; }
+            set { mainThickness = value; }
+        }
+
+        public double EdgeThickness
+        {
+            get { return edgeThickness; }
+            set { edgeThickness = value; }
+        }
+
+        public double EdgeWidth
+        {
+            get { return edgeWidth; }
+            set { edgeWidth = value; }
+        }
+
+        public double Ang
+        {
+            get { return ang; }
+            set { ang = value; }
+        }
+
+        public CW3(double shortR, double longR, double t)
+        {
+            this.RadiusS = shortR;
+            this.Radius = longR;
+            this.Thickness = t;
+        }
+
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用CW3型砂轮绘图。");
+
+            Pen p = new Pen(Color.Black, 1f);
+            p.DashStyle = DashStyle.DashDot;
+
+            CDraw.SetCoordinate(g, p0);                 // 设置坐标
+
+            p.Color = Color.Blue;
+            p.DashStyle = DashStyle.Solid;
+            Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
+            p1 = new Point(base.StartPos, (int)base.Radius);
+            p2 = new Point(base.StartPos, -(int)base.Radius);
+            p3 = new Point(base.StartPos + (int)base.Thickness, (int)base.Radius);
+            p4 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
+
+            EndPos = p3.X;
+
+            g.DrawLine(p, p1, p2);
+            g.DrawLine(p, p3, p4);
+            g.DrawLine(p, p1, p3);
+            g.DrawLine(p, p2, p4);
         }
     }
 
@@ -195,7 +283,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
 
-            CDraw.DrawCoordinate(g, p0, p);                 // 绘制坐标
+            CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -205,13 +293,15 @@ namespace CNCneo.AWheel
             p2 = new Point(base.StartPos, -(int)base.Radius);
             p3 = new Point(base.StartPos + (int)base.Thickness, (int)base.Radius);
             p4 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
-            Point[] arrPoints = { p1, p2, p4, p3 };
+            //Point[] arrPoints = { p1, p2, p4, p3 };
 
-            //g.DrawLine(p, p1, p2);
-            //g.DrawLine(p, p3, p4);
-            //g.DrawLine(p, p1, p3);
-            //g.DrawLine(p, p2, p4);
-            g.FillPolygon(b, arrPoints);
+            EndPos = p3.X;
+
+            g.DrawLine(p, p1, p2);
+            g.DrawLine(p, p3, p4);
+            g.DrawLine(p, p1, p3);
+            g.DrawLine(p, p2, p4);
+            //g.FillPolygon(b, arrPoints);
         }
     }
 }

@@ -35,6 +35,7 @@
             this.lVersion = new System.Windows.Forms.Label();
             this.lTM = new System.Windows.Forms.Label();
             this.pMachine = new System.Windows.Forms.Panel();
+            this.btnTest = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.rdoP2 = new System.Windows.Forms.RadioButton();
             this.rdoP1 = new System.Windows.Forms.RadioButton();
             this.tDrawWhlGrp = new System.Windows.Forms.Timer(this.components);
-            this.btnTest = new System.Windows.Forms.Button();
             this.pHead.SuspendLayout();
             this.pMachine.SuspendLayout();
             this.pWheel.SuspendLayout();
@@ -143,10 +143,21 @@
             this.pMachine.Size = new System.Drawing.Size(300, 775);
             this.pMachine.TabIndex = 1;
             // 
+            // btnTest
+            // 
+            this.btnTest.Font = new System.Drawing.Font("宋体", 16F);
+            this.btnTest.Location = new System.Drawing.Point(4, 597);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(256, 64);
+            this.btnTest.TabIndex = 14;
+            this.btnTest.Text = "测试";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // btnQuit
             // 
             this.btnQuit.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnQuit.Location = new System.Drawing.Point(3, 144);
+            this.btnQuit.Location = new System.Drawing.Point(4, 667);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(256, 64);
             this.btnQuit.TabIndex = 14;
@@ -428,17 +439,6 @@
             // 
             this.tDrawWhlGrp.Tick += new System.EventHandler(this.tDrawWhlGrp_Tick);
             // 
-            // btnTest
-            // 
-            this.btnTest.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnTest.Location = new System.Drawing.Point(4, 597);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(256, 64);
-            this.btnTest.TabIndex = 14;
-            this.btnTest.Text = "测试";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // winMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -457,6 +457,7 @@
             this.Name = "winMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "演示系统";
+            this.Load += new System.EventHandler(this.winMain_Load);
             this.pHead.ResumeLayout(false);
             this.pHead.PerformLayout();
             this.pMachine.ResumeLayout(false);

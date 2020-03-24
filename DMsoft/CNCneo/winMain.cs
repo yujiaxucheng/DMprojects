@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using CNCneo.AWheel;
 
 namespace CNCneo
@@ -81,11 +82,36 @@ namespace CNCneo
         // 定时器绘制砂轮组
         private void tDrawWhlGrp_Tick(object sender, EventArgs e)
         {
-            CWheel whlGrp1 = new CW1(62.5, 30);
-            CWheel whlGrp2 = new CRing(40, 10);
             Point p0 = new Point(this.pbWhlGrp1.Width / 4, this.pbWhlGrp1.Height / 2);
+            Pen p = new Pen(Color.Red, 1f);
+            Graphics g = this.pbWhlGrp1.CreateGraphics();
+            p.DashStyle = DashStyle.DashDot;
+            CDraw.DrawAxisXY(g, p, p0);
 
-            whlGrp1.Draw(this.pbWhlGrp1.CreateGraphics(), p0);
+            CWheel[] whlGrp1 = new CWheel[8];
+            whlGrp1[0] = new CW2(50, 60, 15);
+            whlGrp1[1] = new CRing(35, 15);
+            whlGrp1[2] = new CW1(100, 25);
+            whlGrp1[3] = new CRing(35, 25);
+            whlGrp1[4] = new CW1(120, 25);
+            for (int i = 0; i < whlGrp1.Length; i++)
+            {
+                if (whlGrp1[i] == null)
+                    break;
+                else
+                {
+                    if (i > 0)
+                    {
+                        whlGrp1[i].StartPos = whlGrp1[i - 1].EndPos;
+                        whlGrp1[i].Draw(g, p0);
+                    }
+                    else
+                        whlGrp1[i].Draw(g, p0);
+                }
+            }
+
+            CWheel whlGrp2 = new CRing(40, 10);
+
             whlGrp2.Draw(this.pbWhlGrp2.CreateGraphics(), p0);
             this.tDrawWhlGrp.Enabled = false;
         }
@@ -100,6 +126,12 @@ namespace CNCneo
         private void btnTest_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // 界面加载事件
+        private void winMain_Load(object sender, EventArgs e)
+        {
+            this.cbLan.MouseWheel += CFunc.FBD_MouseWheel;          // 禁用鼠标滚轮
         }
     }
 }
