@@ -62,6 +62,8 @@
             this.rdoP2 = new System.Windows.Forms.RadioButton();
             this.rdoP1 = new System.Windows.Forms.RadioButton();
             this.tDrawWhlGrp = new System.Windows.Forms.Timer(this.components);
+            this.lWhlGrp1 = new System.Windows.Forms.Label();
+            this.lWhlGrp2 = new System.Windows.Forms.Label();
             this.pHead.SuspendLayout();
             this.pMachine.SuspendLayout();
             this.pWheel.SuspendLayout();
@@ -204,11 +206,13 @@
             // 
             // scWheel.Panel1
             // 
+            this.scWheel.Panel1.Controls.Add(this.lWhlGrp1);
             this.scWheel.Panel1.Controls.Add(this.pbWhlGrp1);
             this.scWheel.Panel1.Controls.Add(this.dgvGroup1);
             // 
             // scWheel.Panel2
             // 
+            this.scWheel.Panel2.Controls.Add(this.lWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.pbWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.dgvGroup2);
             this.scWheel.Size = new System.Drawing.Size(1296, 446);
@@ -219,7 +223,7 @@
             // 
             this.pbWhlGrp1.Location = new System.Drawing.Point(3, 81);
             this.pbWhlGrp1.Name = "pbWhlGrp1";
-            this.pbWhlGrp1.Size = new System.Drawing.Size(640, 353);
+            this.pbWhlGrp1.Size = new System.Drawing.Size(639, 353);
             this.pbWhlGrp1.TabIndex = 1;
             this.pbWhlGrp1.TabStop = false;
             // 
@@ -277,9 +281,9 @@
             // 
             // pbWhlGrp2
             // 
-            this.pbWhlGrp2.Location = new System.Drawing.Point(2, 81);
+            this.pbWhlGrp2.Location = new System.Drawing.Point(3, 81);
             this.pbWhlGrp2.Name = "pbWhlGrp2";
-            this.pbWhlGrp2.Size = new System.Drawing.Size(640, 353);
+            this.pbWhlGrp2.Size = new System.Drawing.Size(637, 353);
             this.pbWhlGrp2.TabIndex = 1;
             this.pbWhlGrp2.TabStop = false;
             // 
@@ -439,6 +443,26 @@
             // 
             this.tDrawWhlGrp.Tick += new System.EventHandler(this.tDrawWhlGrp_Tick);
             // 
+            // lWhlGrp1
+            // 
+            this.lWhlGrp1.AutoSize = true;
+            this.lWhlGrp1.Font = new System.Drawing.Font("宋体", 20F);
+            this.lWhlGrp1.Location = new System.Drawing.Point(8, 81);
+            this.lWhlGrp1.Name = "lWhlGrp1";
+            this.lWhlGrp1.Size = new System.Drawing.Size(134, 34);
+            this.lWhlGrp1.TabIndex = 2;
+            this.lWhlGrp1.Text = "砂轮组A";
+            // 
+            // lWhlGrp2
+            // 
+            this.lWhlGrp2.AutoSize = true;
+            this.lWhlGrp2.Font = new System.Drawing.Font("宋体", 20F);
+            this.lWhlGrp2.Location = new System.Drawing.Point(3, 81);
+            this.lWhlGrp2.Name = "lWhlGrp2";
+            this.lWhlGrp2.Size = new System.Drawing.Size(134, 34);
+            this.lWhlGrp2.TabIndex = 2;
+            this.lWhlGrp2.Text = "砂轮组B";
+            // 
             // winMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -463,7 +487,9 @@
             this.pMachine.ResumeLayout(false);
             this.pWheel.ResumeLayout(false);
             this.scWheel.Panel1.ResumeLayout(false);
+            this.scWheel.Panel1.PerformLayout();
             this.scWheel.Panel2.ResumeLayout(false);
+            this.scWheel.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scWheel)).EndInit();
             this.scWheel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbWhlGrp1)).EndInit();
@@ -510,6 +536,8 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Timer tDrawWhlGrp;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Label lWhlGrp1;
+        private System.Windows.Forms.Label lWhlGrp2;
 
     }
 }

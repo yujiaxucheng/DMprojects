@@ -220,11 +220,17 @@ namespace CNCneo.AWheel
             set { ang = value; }
         }
 
-        public CW3(double shortR, double longR, double t)
+        public CW3(double longR, double thickness, double shortR, double innerR, double mT, double eT, double eW, double a)
         {
-            this.RadiusS = shortR;
             this.Radius = longR;
-            this.Thickness = t;
+            this.Thickness = thickness;
+
+            this.RadiusS = shortR;
+            this.RadiusI = innerR;
+            this.MainThickness = mT;
+            this.EdgeThickness = eT;
+            this.EdgeWidth = eW;
+            this.Ang = a;
         }
 
         public override void Draw(Graphics g, Point p0)
@@ -238,18 +244,44 @@ namespace CNCneo.AWheel
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
-            Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
-            p1 = new Point(base.StartPos, (int)base.Radius);
-            p2 = new Point(base.StartPos, -(int)base.Radius);
-            p3 = new Point(base.StartPos + (int)base.Thickness, (int)base.Radius);
-            p4 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
+            Point p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14;
+            p1 = new Point(base.StartPos, (int)radiusS);
+            p2 = new Point(base.StartPos, -(int)radiusS);
+            p3 = new Point(base.StartPos + (int)mainThickness, (int)(mainThickness * CFunc.Tan(ang) + radiusS));
+            p4 = new Point(base.StartPos + (int)mainThickness, -(int)(mainThickness * CFunc.Tan(ang) + radiusS));
+            p5 = new Point(p3.X, (int)base.Radius);
+            p6 = new Point(p3.X, -(int)base.Radius);
+            p7 = new Point(base.StartPos + (int)base.Thickness, (int)base.Radius);
+            p8 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
+            p9 = new Point(base.StartPos + (int)edgeThickness, (int)radiusI);
+            p10 = new Point(base.StartPos + (int)edgeThickness, -(int)radiusI);
+            p11 = new Point(p3.X, (int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusS));
+            p12 = new Point(p3.X, -(int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusS));
+            p13 = new Point(base.StartPos + (int)base.Thickness, p11.Y);
+            p14 = new Point(base.StartPos + (int)base.Thickness, p12.Y);
 
-            EndPos = p3.X;
+            EndPos = p13.X;
+
+            g.DrawLine(p, p1, p3);
+            g.DrawLine(p, p5, p7);
+            g.DrawLine(p, p5, p11);
+            g.DrawLine(p, p7, p13);
+            g.DrawLine(p, p11, p13);
+
+            g.DrawLine(p, p2, p4);
+            g.DrawLine(p, p6, p8);
+            g.DrawLine(p, p6, p12);
+            g.DrawLine(p, p8, p14);
+            g.DrawLine(p, p12, p14);
 
             g.DrawLine(p, p1, p2);
-            g.DrawLine(p, p3, p4);
-            g.DrawLine(p, p1, p3);
-            g.DrawLine(p, p2, p4);
+            p.DashStyle = DashStyle.Dot;
+            g.DrawLine(p, p9, p10);
+            g.DrawLine(p, p9, p11);
+            g.DrawLine(p, p10, p12);
+            g.DrawLine(p, p11, p12);
+            g.DrawLine(p, p13, p14);
+
         }
     }
 

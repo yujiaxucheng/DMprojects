@@ -82,9 +82,11 @@ namespace CNCneo
         // 定时器绘制砂轮组
         private void tDrawWhlGrp_Tick(object sender, EventArgs e)
         {
-            Point p0 = new Point(this.pbWhlGrp1.Width / 4, this.pbWhlGrp1.Height / 2);
+            Point p0 = new Point(this.pbWhlGrp1.Width / 3, this.pbWhlGrp1.Height / 2);
             Pen p = new Pen(Color.Red, 1f);
-            Graphics g = this.pbWhlGrp1.CreateGraphics();
+            Graphics g;
+
+            g = this.pbWhlGrp1.CreateGraphics();
             p.DashStyle = DashStyle.DashDot;
             CDraw.DrawAxisXY(g, p, p0);
 
@@ -93,7 +95,8 @@ namespace CNCneo
             whlGrp1[1] = new CRing(35, 15);
             whlGrp1[2] = new CW1(100, 25);
             whlGrp1[3] = new CRing(35, 25);
-            whlGrp1[4] = new CW1(120, 25);
+            whlGrp1[4] = new CW3(120, 60, 60, 55, 45, 15, 20, 45);
+            whlGrp1[5] = new CRing(35, 25);
             for (int i = 0; i < whlGrp1.Length; i++)
             {
                 if (whlGrp1[i] == null)
@@ -110,9 +113,34 @@ namespace CNCneo
                 }
             }
 
-            CWheel whlGrp2 = new CRing(40, 10);
+            g = this.pbWhlGrp2.CreateGraphics();
+            CDraw.DrawAxisXY(g, p, p0);
+            CWheel[] whlGrp2 = new CWheel[8];
+            whlGrp2[0] = new CW2(50, 60, 15);
+            whlGrp2[1] = new CRing(35, 45);
+            whlGrp2[2] = new CW1(135, 25);
+            whlGrp2[3] = new CRing(35, 25);
+            whlGrp2[4] = new CW1(80, 25);
+            whlGrp2[5] = new CRing(35, 25);
 
-            whlGrp2.Draw(this.pbWhlGrp2.CreateGraphics(), p0);
+            ((CW2)whlGrp2[0]).F2B = false;
+
+            for (int i = 0; i < whlGrp1.Length; i++)
+            {
+                if (whlGrp2[i] == null)
+                    break;
+                else
+                {
+                    if (i > 0)
+                    {
+                        whlGrp2[i].StartPos = whlGrp2[i - 1].EndPos;
+                        whlGrp2[i].Draw(g, p0);
+                    }
+                    else
+                        whlGrp2[i].Draw(g, p0);
+                }
+            }
+
             this.tDrawWhlGrp.Enabled = false;
         }
 
