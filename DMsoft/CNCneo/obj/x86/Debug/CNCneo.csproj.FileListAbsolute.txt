@@ -6,3 +6,4 @@ D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.csproj.GenerateResourc
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.exe
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.pdb
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Test.resources
+D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.csprojResolveAssemblyReference.cache

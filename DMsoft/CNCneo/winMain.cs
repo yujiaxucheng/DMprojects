@@ -82,6 +82,13 @@ namespace CNCneo
         // 定时器绘制砂轮组
         private void tDrawWhlGrp_Tick(object sender, EventArgs e)
         {
+            tempDrawWheelGroup2();
+            this.tDrawWhlGrp.Enabled = false;
+        }
+
+        // 绘制砂轮组图，临时测试用
+        private void tempDrawWheelGroup1()
+        {
             Point p0 = new Point(this.pbWhlGrp1.Width / 3, this.pbWhlGrp1.Height / 2);
             Pen p = new Pen(Color.Red, 1f);
             Graphics g;
@@ -135,8 +142,24 @@ namespace CNCneo
                         whlGrp2[i].Draw(g, p0);
                 }
             }
+        }
 
-            this.tDrawWhlGrp.Enabled = false;
+        private void tempDrawWheelGroup2()
+        {
+            WheelGroup wg1 = new WheelGroup();
+            Point p0 = new Point(this.pbWhlGrp1.Width / 3, this.pbWhlGrp1.Height / 2);
+            Pen p = new Pen(Color.Red, 1f);
+            Graphics g = this.pbWhlGrp1.CreateGraphics();
+
+            wg1.AddWheel(new CW2(50, 60, 15));
+            wg1.AddWheel(new CRing(35, 15));
+            wg1.AddWheel(new CW1(100, 25));
+            wg1.AddWheel(new CRing(35, 25));
+            wg1.AddWheel(new CW3(120, 60, 60, 55, 45, 15, 20, 45));
+            wg1.AddWheel(new CRing(35, 25));
+            wg1.AddWheel(new CW2(50, 60, 15));
+
+            wg1.DrawWheelGroup(g, p0, p);
         }
 
         // 退出软件
