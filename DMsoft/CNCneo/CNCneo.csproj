@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AWheel\CWheel.cs" />
-    <Compile Include="AWheel\WheelGroup.cs" />
+    <Compile Include="AWheel\CWheelGroup.cs" />
+    <Compile Include="BProcess\PMain.cs" />
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,7 +66,7 @@
     <Compile Include="ZFunction\CConst.cs" />
     <Compile Include="ZFunction\CDraw.cs" />
     <Compile Include="ZFunction\CFunc.cs" />
-    <Compile Include="ZResource\CLanguage.cs" />
+    <Compile Include="ZFunction\CLan.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,7 +96,7 @@
     <Folder Include="AMachine\" />
     <Folder Include="APage\" />
     <Folder Include="ATool\" />
-    <Folder Include="BProcess\" />
+    <Folder Include="ZResource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

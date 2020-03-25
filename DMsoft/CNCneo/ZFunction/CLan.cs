@@ -5,7 +5,7 @@ using System.Text;
 
 using System.IO;
 
-namespace CNCneo.ZResource
+namespace CNCneo
 {
     public class CLanguage
     {

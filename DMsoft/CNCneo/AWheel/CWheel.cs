@@ -1,19 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 
-namespace CNCneo.AWheel
+namespace CNCneo.Wheel
 {
     /// <summary>
     /// 砂轮父类
     /// </summary>
     public class CWheel
     {
+        #region 定义砂轮常量
+
+        public const int WHL_ROD = -1;              // 砂轮杆
+        public const int WHL_RING = 0;              // 垫圈
+        public const int WHL_TYPE1 = 1;
+        public const int WHL_TYPE2 = 2;
+        public const int WHL_TYPE3 = 3;
+        public const int WHL_TYPE4 = 4;
+
+        #endregion
+
         private int whlType;                        // 砂轮种类
         private string whlName;                     // 砂轮名
         private double radius = 60;                 // 砂轮半径
@@ -80,10 +86,16 @@ namespace CNCneo.AWheel
 
         public CW1(double r, double t)
         {
+            this.WhlType = CWheel.WHL_TYPE1;
+            this.WhlName = "圆形砂轮";
+
             this.Radius = r;
             this.Thickness = t;
         }
 
+        /// <summary>
+        /// 绘制砂轮图
+        /// </summary>
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用CW1型砂轮绘图。");
@@ -91,7 +103,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
   
-            CDraw.SetCoordinate(g, p0);                 // 设置坐标
+            //CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -118,9 +130,13 @@ namespace CNCneo.AWheel
         private double radiusS = 60;                    // 砂轮较小一面半径默认值
         private bool f2b = true;                        // 砂轮正装还是倒装
         
-        public CW2(double shortR, double longR, double t)
+        public CW2(double shortR, double longR, double t, bool ifF2B)
         {
-            this.RadiusS = shortR;
+            this.WhlType = CWheel.WHL_TYPE2;
+            this.WhlName = "梯形砂轮";
+
+            this.radiusS = shortR;
+            this.f2b = ifF2B;
             this.Radius = longR;
             this.Thickness = t;
         }
@@ -135,6 +151,9 @@ namespace CNCneo.AWheel
             set { f2b = value; }
         }
 
+        /// <summary>
+        /// 绘制砂轮图
+        /// </summary>
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用CW2型砂轮绘图。");
@@ -142,7 +161,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
 
-            CDraw.SetCoordinate(g, p0);                 // 设置坐标
+            //CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -222,6 +241,9 @@ namespace CNCneo.AWheel
 
         public CW3(double longR, double thickness, double shortR, double innerR, double mT, double eT, double eW, double a)
         {
+            this.WhlType = CWheel.WHL_TYPE3;
+            this.WhlName = "V形砂轮";
+
             this.Radius = longR;
             this.Thickness = thickness;
 
@@ -233,6 +255,9 @@ namespace CNCneo.AWheel
             this.Ang = a;
         }
 
+        /// <summary>
+        /// 绘制砂轮图
+        /// </summary>
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用CW3型砂轮绘图。");
@@ -240,7 +265,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
 
-            CDraw.SetCoordinate(g, p0);                 // 设置坐标
+            //CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;
@@ -255,32 +280,31 @@ namespace CNCneo.AWheel
             p8 = new Point(base.StartPos + (int)base.Thickness, -(int)base.Radius);
             p9 = new Point(base.StartPos + (int)edgeThickness, (int)radiusI);
             p10 = new Point(base.StartPos + (int)edgeThickness, -(int)radiusI);
-            p11 = new Point(p3.X, (int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusS));
-            p12 = new Point(p3.X, -(int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusS));
+            p11 = new Point(p3.X, (int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusI));
+            p12 = new Point(p3.X, -(int)((mainThickness - edgeThickness) * CFunc.Tan(ang) + radiusI));
             p13 = new Point(base.StartPos + (int)base.Thickness, p11.Y);
             p14 = new Point(base.StartPos + (int)base.Thickness, p12.Y);
 
             EndPos = p13.X;
 
             g.DrawLine(p, p1, p3);
+            g.DrawLine(p, p3, p5);
             g.DrawLine(p, p5, p7);
-            g.DrawLine(p, p5, p11);
+            //g.DrawLine(p, p5, p11);
             g.DrawLine(p, p7, p13);
             g.DrawLine(p, p11, p13);
 
             g.DrawLine(p, p2, p4);
+            g.DrawLine(p, p4, p6);
             g.DrawLine(p, p6, p8);
-            g.DrawLine(p, p6, p12);
+            //g.DrawLine(p, p6, p12);
             g.DrawLine(p, p8, p14);
             g.DrawLine(p, p12, p14);
 
             g.DrawLine(p, p1, p2);
-            p.DashStyle = DashStyle.Dot;
             g.DrawLine(p, p9, p10);
             g.DrawLine(p, p9, p11);
             g.DrawLine(p, p10, p12);
-            g.DrawLine(p, p11, p12);
-            g.DrawLine(p, p13, p14);
 
         }
     }
@@ -290,6 +314,9 @@ namespace CNCneo.AWheel
     /// </summary>
     class CW4 : CWheel
     {
+        /// <summary>
+        /// 绘制砂轮图
+        /// </summary>
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用CW4型砂轮绘图。");
@@ -303,10 +330,16 @@ namespace CNCneo.AWheel
     {
         public CRing(double r, double t)
         {
+            this.WhlType = CWheel.WHL_RING;
+            this.WhlName = "垫圈";
+
             this.Radius = r;
             this.Thickness = t;
         }
 
+        /// <summary>
+        /// 绘制砂轮图
+        /// </summary>
         public override void Draw(Graphics g, Point p0)
         {
             Console.WriteLine("调用垫圈绘图。");
@@ -315,7 +348,7 @@ namespace CNCneo.AWheel
             Pen p = new Pen(Color.Black, 1f);
             p.DashStyle = DashStyle.DashDot;
 
-            CDraw.SetCoordinate(g, p0);                 // 设置坐标
+            //CDraw.SetCoordinate(g, p0);                 // 设置坐标
 
             p.Color = Color.Blue;
             p.DashStyle = DashStyle.Solid;

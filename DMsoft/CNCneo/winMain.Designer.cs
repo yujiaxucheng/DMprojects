@@ -88,7 +88,7 @@
             this.pHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHead.Location = new System.Drawing.Point(0, 0);
             this.pHead.Name = "pHead";
-            this.pHead.Size = new System.Drawing.Size(1600, 125);
+            this.pHead.Size = new System.Drawing.Size(1600, 115);
             this.pHead.TabIndex = 0;
             // 
             // cbLan
@@ -140,9 +140,9 @@
             this.pMachine.Controls.Add(this.btnSetting);
             this.pMachine.Controls.Add(this.btnLogin);
             this.pMachine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pMachine.Location = new System.Drawing.Point(1300, 125);
+            this.pMachine.Location = new System.Drawing.Point(1300, 115);
             this.pMachine.Name = "pMachine";
-            this.pMachine.Size = new System.Drawing.Size(300, 775);
+            this.pMachine.Size = new System.Drawing.Size(300, 785);
             this.pMachine.TabIndex = 1;
             // 
             // btnTest
@@ -192,9 +192,9 @@
             this.pWheel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pWheel.Controls.Add(this.scWheel);
             this.pWheel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pWheel.Location = new System.Drawing.Point(0, 450);
+            this.pWheel.Location = new System.Drawing.Point(0, 400);
             this.pWheel.Name = "pWheel";
-            this.pWheel.Size = new System.Drawing.Size(1300, 450);
+            this.pWheel.Size = new System.Drawing.Size(1300, 500);
             this.pWheel.TabIndex = 2;
             // 
             // scWheel
@@ -215,7 +215,7 @@
             this.scWheel.Panel2.Controls.Add(this.lWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.pbWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.dgvGroup2);
-            this.scWheel.Size = new System.Drawing.Size(1296, 446);
+            this.scWheel.Size = new System.Drawing.Size(1296, 496);
             this.scWheel.SplitterDistance = 648;
             this.scWheel.TabIndex = 0;
             // 
@@ -223,7 +223,7 @@
             // 
             this.lWhlGrp1.AutoSize = true;
             this.lWhlGrp1.Font = new System.Drawing.Font("宋体", 20F);
-            this.lWhlGrp1.Location = new System.Drawing.Point(8, 81);
+            this.lWhlGrp1.Location = new System.Drawing.Point(8, 10);
             this.lWhlGrp1.Name = "lWhlGrp1";
             this.lWhlGrp1.Size = new System.Drawing.Size(134, 34);
             this.lWhlGrp1.TabIndex = 4;
@@ -231,7 +231,7 @@
             // 
             // pbWhlGrp1
             // 
-            this.pbWhlGrp1.Location = new System.Drawing.Point(3, 81);
+            this.pbWhlGrp1.Location = new System.Drawing.Point(3, 133);
             this.pbWhlGrp1.Name = "pbWhlGrp1";
             this.pbWhlGrp1.Size = new System.Drawing.Size(639, 353);
             this.pbWhlGrp1.TabIndex = 1;
@@ -249,7 +249,7 @@
             this.Whl2,
             this.Whl3,
             this.Whl4});
-            this.dgvGroup1.Location = new System.Drawing.Point(3, 5);
+            this.dgvGroup1.Location = new System.Drawing.Point(3, 57);
             this.dgvGroup1.Name = "dgvGroup1";
             this.dgvGroup1.ReadOnly = true;
             this.dgvGroup1.RowHeadersVisible = false;
@@ -293,7 +293,7 @@
             // 
             this.lWhlGrp2.AutoSize = true;
             this.lWhlGrp2.Font = new System.Drawing.Font("宋体", 20F);
-            this.lWhlGrp2.Location = new System.Drawing.Point(3, 81);
+            this.lWhlGrp2.Location = new System.Drawing.Point(3, 10);
             this.lWhlGrp2.Name = "lWhlGrp2";
             this.lWhlGrp2.Size = new System.Drawing.Size(134, 34);
             this.lWhlGrp2.TabIndex = 5;
@@ -301,7 +301,7 @@
             // 
             // pbWhlGrp2
             // 
-            this.pbWhlGrp2.Location = new System.Drawing.Point(3, 81);
+            this.pbWhlGrp2.Location = new System.Drawing.Point(3, 133);
             this.pbWhlGrp2.Name = "pbWhlGrp2";
             this.pbWhlGrp2.Size = new System.Drawing.Size(637, 353);
             this.pbWhlGrp2.TabIndex = 1;
@@ -319,7 +319,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvGroup2.Location = new System.Drawing.Point(2, 5);
+            this.dgvGroup2.Location = new System.Drawing.Point(2, 57);
             this.dgvGroup2.Name = "dgvGroup2";
             this.dgvGroup2.ReadOnly = true;
             this.dgvGroup2.RowHeadersVisible = false;
@@ -370,15 +370,15 @@
             this.pProduct.Controls.Add(this.rdoP2);
             this.pProduct.Controls.Add(this.rdoP1);
             this.pProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pProduct.Location = new System.Drawing.Point(0, 125);
+            this.pProduct.Location = new System.Drawing.Point(0, 115);
             this.pProduct.Name = "pProduct";
-            this.pProduct.Size = new System.Drawing.Size(1300, 325);
+            this.pProduct.Size = new System.Drawing.Size(1300, 285);
             this.pProduct.TabIndex = 3;
             // 
             // rdoP6
             // 
             this.rdoP6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP6.Location = new System.Drawing.Point(215, 174);
+            this.rdoP6.Location = new System.Drawing.Point(223, 144);
             this.rdoP6.Name = "rdoP6";
             this.rdoP6.Size = new System.Drawing.Size(130, 125);
             this.rdoP6.TabIndex = 14;
@@ -390,7 +390,7 @@
             // rdoP7
             // 
             this.rdoP7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP7.Location = new System.Drawing.Point(397, 174);
+            this.rdoP7.Location = new System.Drawing.Point(405, 144);
             this.rdoP7.Name = "rdoP7";
             this.rdoP7.Size = new System.Drawing.Size(130, 125);
             this.rdoP7.TabIndex = 15;
@@ -402,7 +402,7 @@
             // rdoP5
             // 
             this.rdoP5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP5.Location = new System.Drawing.Point(33, 174);
+            this.rdoP5.Location = new System.Drawing.Point(41, 144);
             this.rdoP5.Name = "rdoP5";
             this.rdoP5.Size = new System.Drawing.Size(130, 125);
             this.rdoP5.TabIndex = 13;
@@ -414,7 +414,7 @@
             // rdoP4
             // 
             this.rdoP4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP4.Location = new System.Drawing.Point(585, 24);
+            this.rdoP4.Location = new System.Drawing.Point(593, 13);
             this.rdoP4.Name = "rdoP4";
             this.rdoP4.Size = new System.Drawing.Size(130, 125);
             this.rdoP4.TabIndex = 12;
@@ -426,7 +426,7 @@
             // rdoP3
             // 
             this.rdoP3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP3.Location = new System.Drawing.Point(401, 24);
+            this.rdoP3.Location = new System.Drawing.Point(409, 13);
             this.rdoP3.Name = "rdoP3";
             this.rdoP3.Size = new System.Drawing.Size(130, 125);
             this.rdoP3.TabIndex = 11;
@@ -438,7 +438,7 @@
             // rdoP2
             // 
             this.rdoP2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP2.Location = new System.Drawing.Point(217, 24);
+            this.rdoP2.Location = new System.Drawing.Point(225, 13);
             this.rdoP2.Name = "rdoP2";
             this.rdoP2.Size = new System.Drawing.Size(130, 125);
             this.rdoP2.TabIndex = 10;
@@ -450,7 +450,7 @@
             // rdoP1
             // 
             this.rdoP1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP1.Location = new System.Drawing.Point(33, 24);
+            this.rdoP1.Location = new System.Drawing.Point(41, 13);
             this.rdoP1.Name = "rdoP1";
             this.rdoP1.Size = new System.Drawing.Size(130, 125);
             this.rdoP1.TabIndex = 9;
