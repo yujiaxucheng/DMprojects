@@ -380,7 +380,7 @@
             // rdoP6
             // 
             this.rdoP6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP6.Location = new System.Drawing.Point(177, 144);
+            this.rdoP6.Location = new System.Drawing.Point(152, 144);
             this.rdoP6.Name = "rdoP6";
             this.rdoP6.Size = new System.Drawing.Size(130, 125);
             this.rdoP6.TabIndex = 14;
@@ -392,7 +392,7 @@
             // rdoP7
             // 
             this.rdoP7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP7.Location = new System.Drawing.Point(313, 144);
+            this.rdoP7.Location = new System.Drawing.Point(288, 144);
             this.rdoP7.Name = "rdoP7";
             this.rdoP7.Size = new System.Drawing.Size(130, 125);
             this.rdoP7.TabIndex = 15;
@@ -404,7 +404,7 @@
             // rdoP5
             // 
             this.rdoP5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP5.Location = new System.Drawing.Point(41, 144);
+            this.rdoP5.Location = new System.Drawing.Point(16, 144);
             this.rdoP5.Name = "rdoP5";
             this.rdoP5.Size = new System.Drawing.Size(130, 125);
             this.rdoP5.TabIndex = 13;
@@ -416,7 +416,7 @@
             // rdoP4
             // 
             this.rdoP4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP4.Location = new System.Drawing.Point(449, 13);
+            this.rdoP4.Location = new System.Drawing.Point(424, 13);
             this.rdoP4.Name = "rdoP4";
             this.rdoP4.Size = new System.Drawing.Size(130, 125);
             this.rdoP4.TabIndex = 12;
@@ -428,7 +428,7 @@
             // rdoP3
             // 
             this.rdoP3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP3.Location = new System.Drawing.Point(313, 13);
+            this.rdoP3.Location = new System.Drawing.Point(288, 13);
             this.rdoP3.Name = "rdoP3";
             this.rdoP3.Size = new System.Drawing.Size(130, 125);
             this.rdoP3.TabIndex = 11;
@@ -440,7 +440,7 @@
             // rdoP2
             // 
             this.rdoP2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP2.Location = new System.Drawing.Point(177, 13);
+            this.rdoP2.Location = new System.Drawing.Point(152, 13);
             this.rdoP2.Name = "rdoP2";
             this.rdoP2.Size = new System.Drawing.Size(130, 125);
             this.rdoP2.TabIndex = 10;
@@ -452,7 +452,7 @@
             // rdoP1
             // 
             this.rdoP1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP1.Location = new System.Drawing.Point(41, 13);
+            this.rdoP1.Location = new System.Drawing.Point(16, 13);
             this.rdoP1.Name = "rdoP1";
             this.rdoP1.Size = new System.Drawing.Size(130, 125);
             this.rdoP1.TabIndex = 9;

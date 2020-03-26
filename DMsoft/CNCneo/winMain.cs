@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using CNCneo.Wheel;
+using CNCneo.Tool;
 
 namespace CNCneo
 {
@@ -33,6 +34,7 @@ namespace CNCneo
         // 界面加载触发
         private void winMain_Load(object sender, EventArgs e)
         {
+            this.tDrawWhlGrp.Enabled = true;
             this.cbLan.MouseWheel += CFunc.FBD_MouseWheel;          // 禁用鼠标滚轮
         }
 
@@ -132,8 +134,17 @@ namespace CNCneo
         // 进入系统，设置工件数据
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (PMain.mTool == null)
-                MessageBox.Show(CLan.dicLan["请选择一个工件"]);
+            //if (PMain.mTool == null)
+            //    MessageBox.Show(CLan.dicLan["请选择一个工件"]);
+            //else
+            {
+                DialogResult dr;
+                MainPage pdMain = new MainPage();
+                //this.Hide();
+                dr = pdMain.ShowDialog();
+                //if (dr == System.Windows.Forms.DialogResult.OK)
+                //    this.Show();
+            }
         }
 
         // 语言选择改变
