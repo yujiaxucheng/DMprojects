@@ -1,5 +1,7 @@
 ﻿using System;
 using CNCneo.Wheel;
+using CNCneo.Tool;
+using System.Collections.Generic;
 
 namespace CNCneo
 {
@@ -11,7 +13,7 @@ namespace CNCneo
         #region 总工作流
 
         /// <summary>
-        /// 初始化
+        /// 机床系统初始化
         /// </summary>
         /// <returns>返回正确与否</returns>
         public static bool Init()
@@ -19,8 +21,10 @@ namespace CNCneo
             Console.WriteLine("软件初始化......");
             bool bRet = true;
 
-            bRet = InitMachine();
-            bRet = InitWheelGroup();
+            InitMachine();
+            InitWheelGroup();
+            InitLanguage();
+            InitTool();
 
             return bRet;
         }
@@ -84,6 +88,37 @@ namespace CNCneo
         #endregion 
 
         #region 界面部分
+
+        public static int lanCode = 0;      // 临时，需要从文件读取
+
+        /// <summary>
+        /// 加工工件
+        /// </summary>
+        public static CTool mTool = null;
+
+        /// <summary>
+        /// 初始化工件
+        /// </summary>
+        /// <returns>返回正确与否</returns>
+        public static bool InitTool()
+        {
+            Console.WriteLine("工件初始化......");
+
+            return true;
+        }
+
+        /// <summary>
+        /// 初始化翻译文件
+        /// </summary>
+        /// <returns>返回正确与否</returns>
+        public static bool InitLanguage()
+        {
+            Console.WriteLine("翻译文件初始化......");
+
+            CLan.dicLan = CLan.GetContFromFile(CLan.GetNameByLanCode(PMain.lanCode));
+
+            return true;
+        }
 
         #endregion
 

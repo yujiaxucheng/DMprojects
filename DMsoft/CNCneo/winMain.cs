@@ -17,9 +17,9 @@ namespace CNCneo
         public winMain()
         {
             InitializeComponent();
-            PMain.Init();
             Console.WriteLine("进入主界面......");
 
+            InitLan();
             InitForm();
             InitByProduct();
         }
@@ -50,6 +50,8 @@ namespace CNCneo
         {
             
         }
+
+        #region 自定义操作
 
         /// <summary>
         /// 初始化界面控件
@@ -102,11 +104,44 @@ namespace CNCneo
         }
 
         /// <summary>
+        /// 初始化语言
+        /// </summary>
+        private void InitLan()
+        {
+            this.lTM.Text = CLan.dicLan["公司名"];
+            this.lVersion.Text = CLan.dicLan["版本号"];
+            this.rdoP1.Text = CLan.dicLan["产品1"];
+            this.rdoP2.Text = CLan.dicLan["产品3"];
+            this.rdoP3.Text = CLan.dicLan["产品1"];
+            this.rdoP4.Text = CLan.dicLan["产品4"];
+            this.rdoP5.Text = CLan.dicLan["产品5"];
+            this.rdoP6.Text = CLan.dicLan["产品6"];
+            this.rdoP7.Text = CLan.dicLan["产品7"];
+        }
+
+        /// <summary>
         /// 根据产品初始化界面
         /// </summary>
         private void InitByProduct()
         { 
-            this.cbLan.SelectedIndex = 0;       // 临时
+            this.cbLan.SelectedIndex = PMain.lanCode;
+        }
+
+        #endregion 
+
+        // 进入系统，设置工件数据
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (PMain.mTool == null)
+                MessageBox.Show(CLan.dicLan["请选择一个工件"]);
+        }
+
+        // 语言选择改变
+        private void cbLan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PMain.lanCode = this.cbLan.SelectedIndex;
+            CLan.dicLan = CLan.GetContFromFile(CLan.GetNameByLanCode(PMain.lanCode));
+            InitLan();
         }
 
     }

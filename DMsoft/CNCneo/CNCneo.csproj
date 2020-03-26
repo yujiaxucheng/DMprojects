@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ATool\CTool.cs" />
     <Compile Include="AWheel\CWheel.cs" />
     <Compile Include="AWheel\CWheelGroup.cs" />
     <Compile Include="BProcess\PMain.cs" />
@@ -95,7 +96,10 @@
   <ItemGroup>
     <Folder Include="AMachine\" />
     <Folder Include="APage\" />
-    <Folder Include="ATool\" />
+    <Folder Include="ATool\Product1\" />
+    <Folder Include="ATool\Product2\" />
+    <Folder Include="ATool\Product3\" />
+    <Folder Include="ATool\Product4\" />
     <Folder Include="ZResource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

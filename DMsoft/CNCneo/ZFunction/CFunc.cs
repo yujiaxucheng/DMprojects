@@ -82,13 +82,14 @@ namespace CNCneo
             while (sr.EndOfStream == false)
             {
                 tStr = sr.ReadLine();
-                if (tStr.IndexOf("=") < (tStr.Length - 1))
+                if (tStr.IndexOf("=") < (tStr.Length - 1) && tStr.IndexOf("=") > 1)
                 {
                     dicStrStr.Add(tCategory + tStr.Substring(0, tStr.IndexOf("=")), tStr.Substring(tStr.IndexOf("=") + 1));
                 }
                 else
                 {
-                    tCategory = tStr;
+                    //tCategory = tStr + "_"; // 老方法
+                    continue;
                 }
             }
 

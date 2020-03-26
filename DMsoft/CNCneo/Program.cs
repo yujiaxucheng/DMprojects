@@ -15,6 +15,9 @@ namespace CNCneo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            PMain.Init();
+
             Application.Run(new winMain());
         }
     }
