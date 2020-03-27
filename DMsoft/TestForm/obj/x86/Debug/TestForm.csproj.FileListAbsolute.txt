@@ -12,3 +12,15 @@ D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.frmSnake.resources
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.csprojResolveAssemblyReference.cache
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.winWeb.resources
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.waitingForm.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\bin\Debug\TestForm.exe
+D:\DMprojects\DMprojects\DMsoft\TestForm\bin\Debug\TestForm.pdb
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.csprojResolveAssemblyReference.cache
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.C0_TestAllInstance_MainForm.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.defaultForm.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.frmSnake.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.Properties.Resources.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.waitingForm.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.winWeb.resources
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.csproj.GenerateResource.Cache
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.exe
+D:\DMprojects\DMprojects\DMsoft\TestForm\obj\x86\Debug\TestForm.pdb

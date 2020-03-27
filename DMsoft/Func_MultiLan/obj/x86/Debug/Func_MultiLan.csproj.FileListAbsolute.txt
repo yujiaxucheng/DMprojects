@@ -5,3 +5,10 @@ D:\MyGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.Properti
 D:\MyGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.csproj.GenerateResource.Cache
 D:\MyGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.exe
 D:\MyGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.pdb
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\bin\Debug\Func_MultiLan.exe
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\bin\Debug\Func_MultiLan.pdb
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.MultiLan.resources
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.Properties.Resources.resources
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.csproj.GenerateResource.Cache
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.exe
+D:\DMprojects\DMprojects\DMsoft\Func_MultiLan\obj\x86\Debug\Func_MultiLan.pdb

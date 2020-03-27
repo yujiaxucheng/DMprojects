@@ -7,3 +7,13 @@ D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.exe
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.pdb
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.RUAM.resources
 D:\MyGitHub\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.csprojResolveAssemblyReference.cache
+D:\DMprojects\DMprojects\DMsoft\DMsGame\bin\Debug\DMsGame.exe.config
+D:\DMprojects\DMprojects\DMsoft\DMsGame\bin\Debug\DMsGame.exe
+D:\DMprojects\DMprojects\DMsoft\DMsGame\bin\Debug\DMsGame.pdb
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.csprojResolveAssemblyReference.cache
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.Properties.Resources.resources
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.RUAM.resources
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.snakeGame.resources
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.csproj.GenerateResource.Cache
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.exe
+D:\DMprojects\DMprojects\DMsoft\DMsGame\obj\x86\Debug\DMsGame.pdb

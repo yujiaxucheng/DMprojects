@@ -115,7 +115,7 @@ namespace CNCneo
         {
             Console.WriteLine("翻译文件初始化......");
 
-            CLan.dicLan = CLan.GetContFromFile(CLan.GetNameByLanCode(PMain.lanCode));
+            //CLan.dicLan = CLan.GetContFromFile(CLan.GetNameByLanCode(PMain.lanCode));
 
             return true;
         }

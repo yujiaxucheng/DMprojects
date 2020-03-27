@@ -87,8 +87,9 @@
             this.pHead.Controls.Add(this.lTM);
             this.pHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHead.Location = new System.Drawing.Point(0, 0);
+            this.pHead.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pHead.Name = "pHead";
-            this.pHead.Size = new System.Drawing.Size(1600, 115);
+            this.pHead.Size = new System.Drawing.Size(1027, 93);
             this.pHead.TabIndex = 0;
             // 
             // cbLan
@@ -98,9 +99,10 @@
             "中文简体",
             "中文繁体",
             "English"});
-            this.cbLan.Location = new System.Drawing.Point(1303, 76);
+            this.cbLan.Location = new System.Drawing.Point(1042, 61);
+            this.cbLan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbLan.Name = "cbLan";
-            this.cbLan.Size = new System.Drawing.Size(257, 28);
+            this.cbLan.Size = new System.Drawing.Size(206, 24);
             this.cbLan.TabIndex = 21;
             this.cbLan.Text = "界面语言";
             this.cbLan.SelectedIndexChanged += new System.EventHandler(this.cbLan_SelectedIndexChanged);
@@ -108,18 +110,20 @@
             // lMachineNo
             // 
             this.lMachineNo.AutoSize = true;
-            this.lMachineNo.Location = new System.Drawing.Point(782, 84);
+            this.lMachineNo.Location = new System.Drawing.Point(626, 67);
+            this.lMachineNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lMachineNo.Name = "lMachineNo";
-            this.lMachineNo.Size = new System.Drawing.Size(139, 20);
+            this.lMachineNo.Size = new System.Drawing.Size(112, 16);
             this.lMachineNo.TabIndex = 3;
             this.lMachineNo.Text = "No.2003230001";
             // 
             // lVersion
             // 
             this.lVersion.AutoSize = true;
-            this.lVersion.Location = new System.Drawing.Point(37, 84);
+            this.lVersion.Location = new System.Drawing.Point(30, 67);
+            this.lVersion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lVersion.Name = "lVersion";
-            this.lVersion.Size = new System.Drawing.Size(249, 20);
+            this.lVersion.Size = new System.Drawing.Size(200, 16);
             this.lVersion.TabIndex = 2;
             this.lVersion.Text = "Version 1.0.0.0.20200323";
             // 
@@ -127,9 +131,10 @@
             // 
             this.lTM.AutoSize = true;
             this.lTM.Font = new System.Drawing.Font("宋体", 36F);
-            this.lTM.Location = new System.Drawing.Point(669, 3);
+            this.lTM.Location = new System.Drawing.Point(535, 2);
+            this.lTM.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lTM.Name = "lTM";
-            this.lTM.Size = new System.Drawing.Size(295, 60);
+            this.lTM.Size = new System.Drawing.Size(236, 48);
             this.lTM.TabIndex = 1;
             this.lTM.Text = "TradeMark";
             // 
@@ -141,17 +146,19 @@
             this.pMachine.Controls.Add(this.btnSetting);
             this.pMachine.Controls.Add(this.btnLogin);
             this.pMachine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pMachine.Location = new System.Drawing.Point(1300, 115);
+            this.pMachine.Location = new System.Drawing.Point(786, 93);
+            this.pMachine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pMachine.Name = "pMachine";
-            this.pMachine.Size = new System.Drawing.Size(300, 785);
+            this.pMachine.Size = new System.Drawing.Size(241, 627);
             this.pMachine.TabIndex = 1;
             // 
             // btnTest
             // 
             this.btnTest.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnTest.Location = new System.Drawing.Point(4, 597);
+            this.btnTest.Location = new System.Drawing.Point(3, 478);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(256, 64);
+            this.btnTest.Size = new System.Drawing.Size(205, 51);
             this.btnTest.TabIndex = 999;
             this.btnTest.Text = "测试";
             this.btnTest.UseVisualStyleBackColor = true;
@@ -160,9 +167,10 @@
             // btnQuit
             // 
             this.btnQuit.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnQuit.Location = new System.Drawing.Point(4, 667);
+            this.btnQuit.Location = new System.Drawing.Point(3, 534);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(256, 64);
+            this.btnQuit.Size = new System.Drawing.Size(205, 51);
             this.btnQuit.TabIndex = 8;
             this.btnQuit.Text = "退出软件";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -171,9 +179,10 @@
             // btnSetting
             // 
             this.btnSetting.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnSetting.Location = new System.Drawing.Point(4, 4);
+            this.btnSetting.Location = new System.Drawing.Point(3, 3);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(256, 64);
+            this.btnSetting.Size = new System.Drawing.Size(205, 51);
             this.btnSetting.TabIndex = 6;
             this.btnSetting.Text = "系统设置";
             this.btnSetting.UseVisualStyleBackColor = true;
@@ -181,9 +190,10 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("宋体", 16F);
-            this.btnLogin.Location = new System.Drawing.Point(3, 74);
+            this.btnLogin.Location = new System.Drawing.Point(2, 59);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(256, 64);
+            this.btnLogin.Size = new System.Drawing.Size(205, 51);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "进入系统";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -194,9 +204,10 @@
             this.pWheel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pWheel.Controls.Add(this.scWheel);
             this.pWheel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pWheel.Location = new System.Drawing.Point(0, 400);
+            this.pWheel.Location = new System.Drawing.Point(0, 319);
+            this.pWheel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pWheel.Name = "pWheel";
-            this.pWheel.Size = new System.Drawing.Size(1300, 500);
+            this.pWheel.Size = new System.Drawing.Size(786, 401);
             this.pWheel.TabIndex = 2;
             // 
             // scWheel
@@ -204,6 +215,7 @@
             this.scWheel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.scWheel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scWheel.Location = new System.Drawing.Point(0, 0);
+            this.scWheel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scWheel.Name = "scWheel";
             // 
             // scWheel.Panel1
@@ -217,25 +229,28 @@
             this.scWheel.Panel2.Controls.Add(this.lWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.pbWhlGrp2);
             this.scWheel.Panel2.Controls.Add(this.dgvGroup2);
-            this.scWheel.Size = new System.Drawing.Size(1296, 496);
-            this.scWheel.SplitterDistance = 648;
+            this.scWheel.Size = new System.Drawing.Size(782, 397);
+            this.scWheel.SplitterDistance = 391;
+            this.scWheel.SplitterWidth = 3;
             this.scWheel.TabIndex = 0;
             // 
             // lWhlGrp1
             // 
             this.lWhlGrp1.AutoSize = true;
             this.lWhlGrp1.Font = new System.Drawing.Font("宋体", 20F);
-            this.lWhlGrp1.Location = new System.Drawing.Point(8, 10);
+            this.lWhlGrp1.Location = new System.Drawing.Point(6, 8);
+            this.lWhlGrp1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lWhlGrp1.Name = "lWhlGrp1";
-            this.lWhlGrp1.Size = new System.Drawing.Size(134, 34);
+            this.lWhlGrp1.Size = new System.Drawing.Size(107, 27);
             this.lWhlGrp1.TabIndex = 4;
             this.lWhlGrp1.Text = "砂轮组A";
             // 
             // pbWhlGrp1
             // 
-            this.pbWhlGrp1.Location = new System.Drawing.Point(3, 133);
+            this.pbWhlGrp1.Location = new System.Drawing.Point(2, 106);
+            this.pbWhlGrp1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbWhlGrp1.Name = "pbWhlGrp1";
-            this.pbWhlGrp1.Size = new System.Drawing.Size(639, 353);
+            this.pbWhlGrp1.Size = new System.Drawing.Size(511, 282);
             this.pbWhlGrp1.TabIndex = 1;
             this.pbWhlGrp1.TabStop = false;
             // 
@@ -251,12 +266,13 @@
             this.Whl2,
             this.Whl3,
             this.Whl4});
-            this.dgvGroup1.Location = new System.Drawing.Point(3, 57);
+            this.dgvGroup1.Location = new System.Drawing.Point(2, 46);
+            this.dgvGroup1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvGroup1.Name = "dgvGroup1";
             this.dgvGroup1.ReadOnly = true;
             this.dgvGroup1.RowHeadersVisible = false;
             this.dgvGroup1.RowTemplate.Height = 27;
-            this.dgvGroup1.Size = new System.Drawing.Size(640, 72);
+            this.dgvGroup1.Size = new System.Drawing.Size(512, 58);
             this.dgvGroup1.TabIndex = 900;
             // 
             // Whl1
@@ -295,17 +311,19 @@
             // 
             this.lWhlGrp2.AutoSize = true;
             this.lWhlGrp2.Font = new System.Drawing.Font("宋体", 20F);
-            this.lWhlGrp2.Location = new System.Drawing.Point(3, 10);
+            this.lWhlGrp2.Location = new System.Drawing.Point(2, 8);
+            this.lWhlGrp2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lWhlGrp2.Name = "lWhlGrp2";
-            this.lWhlGrp2.Size = new System.Drawing.Size(134, 34);
+            this.lWhlGrp2.Size = new System.Drawing.Size(107, 27);
             this.lWhlGrp2.TabIndex = 5;
             this.lWhlGrp2.Text = "砂轮组B";
             // 
             // pbWhlGrp2
             // 
-            this.pbWhlGrp2.Location = new System.Drawing.Point(3, 133);
+            this.pbWhlGrp2.Location = new System.Drawing.Point(2, 106);
+            this.pbWhlGrp2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbWhlGrp2.Name = "pbWhlGrp2";
-            this.pbWhlGrp2.Size = new System.Drawing.Size(637, 353);
+            this.pbWhlGrp2.Size = new System.Drawing.Size(510, 282);
             this.pbWhlGrp2.TabIndex = 1;
             this.pbWhlGrp2.TabStop = false;
             // 
@@ -321,12 +339,13 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvGroup2.Location = new System.Drawing.Point(2, 57);
+            this.dgvGroup2.Location = new System.Drawing.Point(2, 46);
+            this.dgvGroup2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvGroup2.Name = "dgvGroup2";
             this.dgvGroup2.ReadOnly = true;
             this.dgvGroup2.RowHeadersVisible = false;
             this.dgvGroup2.RowTemplate.Height = 27;
-            this.dgvGroup2.Size = new System.Drawing.Size(640, 72);
+            this.dgvGroup2.Size = new System.Drawing.Size(512, 58);
             this.dgvGroup2.TabIndex = 900;
             // 
             // dataGridViewTextBoxColumn1
@@ -372,17 +391,19 @@
             this.pProduct.Controls.Add(this.rdoP2);
             this.pProduct.Controls.Add(this.rdoP1);
             this.pProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pProduct.Location = new System.Drawing.Point(0, 115);
+            this.pProduct.Location = new System.Drawing.Point(0, 93);
+            this.pProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pProduct.Name = "pProduct";
-            this.pProduct.Size = new System.Drawing.Size(1300, 285);
+            this.pProduct.Size = new System.Drawing.Size(786, 226);
             this.pProduct.TabIndex = 3;
             // 
             // rdoP6
             // 
             this.rdoP6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP6.Location = new System.Drawing.Point(152, 144);
+            this.rdoP6.Location = new System.Drawing.Point(122, 115);
+            this.rdoP6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP6.Name = "rdoP6";
-            this.rdoP6.Size = new System.Drawing.Size(130, 125);
+            this.rdoP6.Size = new System.Drawing.Size(104, 100);
             this.rdoP6.TabIndex = 14;
             this.rdoP6.TabStop = true;
             this.rdoP6.Text = "产品6";
@@ -392,9 +413,10 @@
             // rdoP7
             // 
             this.rdoP7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP7.Location = new System.Drawing.Point(288, 144);
+            this.rdoP7.Location = new System.Drawing.Point(230, 115);
+            this.rdoP7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP7.Name = "rdoP7";
-            this.rdoP7.Size = new System.Drawing.Size(130, 125);
+            this.rdoP7.Size = new System.Drawing.Size(104, 100);
             this.rdoP7.TabIndex = 15;
             this.rdoP7.TabStop = true;
             this.rdoP7.Text = "产品7";
@@ -404,9 +426,10 @@
             // rdoP5
             // 
             this.rdoP5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP5.Location = new System.Drawing.Point(16, 144);
+            this.rdoP5.Location = new System.Drawing.Point(13, 115);
+            this.rdoP5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP5.Name = "rdoP5";
-            this.rdoP5.Size = new System.Drawing.Size(130, 125);
+            this.rdoP5.Size = new System.Drawing.Size(104, 100);
             this.rdoP5.TabIndex = 13;
             this.rdoP5.TabStop = true;
             this.rdoP5.Text = "产品5";
@@ -416,9 +439,10 @@
             // rdoP4
             // 
             this.rdoP4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP4.Location = new System.Drawing.Point(424, 13);
+            this.rdoP4.Location = new System.Drawing.Point(339, 10);
+            this.rdoP4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP4.Name = "rdoP4";
-            this.rdoP4.Size = new System.Drawing.Size(130, 125);
+            this.rdoP4.Size = new System.Drawing.Size(104, 100);
             this.rdoP4.TabIndex = 12;
             this.rdoP4.TabStop = true;
             this.rdoP4.Text = "产品4";
@@ -428,9 +452,10 @@
             // rdoP3
             // 
             this.rdoP3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP3.Location = new System.Drawing.Point(288, 13);
+            this.rdoP3.Location = new System.Drawing.Point(230, 10);
+            this.rdoP3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP3.Name = "rdoP3";
-            this.rdoP3.Size = new System.Drawing.Size(130, 125);
+            this.rdoP3.Size = new System.Drawing.Size(104, 100);
             this.rdoP3.TabIndex = 11;
             this.rdoP3.TabStop = true;
             this.rdoP3.Text = "产品3";
@@ -440,9 +465,10 @@
             // rdoP2
             // 
             this.rdoP2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP2.Location = new System.Drawing.Point(152, 13);
+            this.rdoP2.Location = new System.Drawing.Point(122, 10);
+            this.rdoP2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP2.Name = "rdoP2";
-            this.rdoP2.Size = new System.Drawing.Size(130, 125);
+            this.rdoP2.Size = new System.Drawing.Size(104, 100);
             this.rdoP2.TabIndex = 10;
             this.rdoP2.TabStop = true;
             this.rdoP2.Text = "产品2";
@@ -452,9 +478,10 @@
             // rdoP1
             // 
             this.rdoP1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rdoP1.Location = new System.Drawing.Point(16, 13);
+            this.rdoP1.Location = new System.Drawing.Point(13, 10);
+            this.rdoP1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdoP1.Name = "rdoP1";
-            this.rdoP1.Size = new System.Drawing.Size(130, 125);
+            this.rdoP1.Size = new System.Drawing.Size(104, 100);
             this.rdoP1.TabIndex = 9;
             this.rdoP1.TabStop = true;
             this.rdoP1.Text = "产品1";
@@ -467,9 +494,9 @@
             // 
             // winMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.ClientSize = new System.Drawing.Size(1027, 720);
             this.ControlBox = false;
             this.Controls.Add(this.pProduct);
             this.Controls.Add(this.pWheel);
@@ -477,7 +504,6 @@
             this.Controls.Add(this.pHead);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "winMain";

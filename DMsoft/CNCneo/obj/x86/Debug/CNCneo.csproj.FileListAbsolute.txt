@@ -8,3 +8,13 @@ D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.pdb
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Test.resources
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Tool.MainPage.resources
 D:\MyGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Tool.FSubPage.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.exe
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.pdb
+D:\DMprojects\DMprojects\DMsoft\CNCneo\bin\Debug\CNCneo.exe
+D:\DMprojects\DMprojects\DMsoft\CNCneo\bin\Debug\CNCneo.pdb
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Tool.MainPage.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Tool.FSubPage.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Properties.Resources.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.Test.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.winMain.resources
+D:\DMprojects\DMprojects\DMsoft\CNCneo\obj\x86\Debug\CNCneo.csproj.GenerateResource.Cache
