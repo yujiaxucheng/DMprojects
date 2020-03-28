@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(snakeGame));
             this.btnStart = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tDraw = new System.Windows.Forms.Timer(this.components);
             this.pbMain = new System.Windows.Forms.PictureBox();
             this.lScore = new System.Windows.Forms.Label();
             this.lSpeed = new System.Windows.Forms.Label();
@@ -52,9 +52,9 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // timer1
+            // tDraw
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tDraw.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pbMain
             // 
@@ -149,7 +149,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tDraw;
         private System.Windows.Forms.PictureBox pbMain;
         private System.Windows.Forms.Label lScore;
         private System.Windows.Forms.Label lSpeed;

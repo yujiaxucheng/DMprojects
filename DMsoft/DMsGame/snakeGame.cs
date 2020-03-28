@@ -1,124 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DMsGame
 {
     public partial class snakeGame : Form
     {
-        /// <summary>
-        /// 上
-        /// </summary>
-        public const int DIR_UP = 1;
-
-        /// <summary>
-        /// 右
-        /// </summary>
-        public const int DIR_RIGHT = 2;
-
-        /// <summary>
-        /// 下
-        /// </summary>
-        public const int DIR_DOWN = 3;
-
-        /// <summary>
-        /// 左
-        /// </summary>
-        public const int DIR_LEFT = 4;
-
+        public const int DIR_UP = 1;                            // 上
+        public const int DIR_DOWN = 3;                          // 下
+        public const int DIR_LEFT = 4;                          // 左
+        public const int DIR_RIGHT = 2;                         // 右
         public const int SNAKE_MAX_LENGTH = 500;                // 蛇最大长度
 
         public Point foodLct = new Point();                     // 缓存食物的坐标 
         public Point[] snakeArr = new Point[SNAKE_MAX_LENGTH];  // 蛇身数组
  
-        public int snakeLen = 6;                                // 蛇初始长度
         public int snakeDirection = DIR_RIGHT;                  // 存储方向键
+        public int snakeLen = 6;                                // 蛇初始长度
         public int score = 0;                                   // 当前分数
         public int historyScore = 0;                            // 历史最高分
-        public int speed = 1;
+        public int speed = 5;                                   // 默认初始速度
 
-        public bool flg = true;                                 // 标志
-
+        /// 构造函数
         public snakeGame()
         {
             InitializeComponent();
+            this.nudSpeed.Value = speed;
         }
 
-        // 开始
+        /// 开始
         private void btnStart_Click(object sender, EventArgs e)
         {
-            int temp = 0;
-            snakeLen = 6;
-            score = 0;
-
-            ClearScreen();
-
-            for (int i = snakeLen - 1; i >= 0; i--)
-            {
-                snakeArr[i].X = temp;
-                snakeArr[i].Y = 0;
-                temp += 15;
-            }
-
-            snakeDirection = DIR_RIGHT;
-
-            this.timer1.Interval = 1000 / speed;
-            this.timer1.Enabled = true;
+            Init();
+            this.tDraw.Enabled = true;
         }
 
-        /// <summary>  
-        /// 时间事件           
-        /// </summary>  
+        /// 控制蛇的速度
+        private void nudSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            speed = Convert.ToInt32(this.nudSpeed.Value);
+            this.tDraw.Interval = 500 / speed;
+        }
+
+        /// 定时器事件
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ClearScreen();
-            Forward(snakeDirection);                            // 蛇向前移
-            for (int i = 0; i < snakeLen; i++)                  // 绘制蛇身
-            {
-                DrawShape(snakeArr[i].X, snakeArr[i].Y);
-            }
+            ClearScreen();                                      // 清除画面
+            ShowSnakeFood();                                    // 显示蛇和食物
+            EatFood();                                          // 吃食
 
-            if (flg)
-            {
-                ShowFood();
-                flg = false;
-            }
+            if (IfBiteSelf() || IfHitWall())                    // 如果咬到自己或撞墙则游戏结束
+                GameOver();
+        }
 
-            if (AteFoot(foodLct))
-            {
-                this.lScore.Text = "分数：" + (++score).ToString();
-                ShowFood();
-                DrawFood(foodLct.X, foodLct.Y);
-            }
-            else
-            {
-                DrawFood(foodLct.X, foodLct.Y);
-            }
+        #region 捕获键盘方向键
 
-            if (CheckSnakeHeadInSnakeBody() || CheckSnakeBodyInFrm())
+        /// 方向键
+        private void frmSnake_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
             {
-                this.timer1.Enabled = false;
-                MessageBox.Show("游戏结束！");
-
-                if (score > historyScore)
-                {
-                    historyScore = score;
-                }
-
-                score = 0;
-                this.lScore.Text = "分数：" + score.ToString();
-                this.lhisScore.Text = "历史最高分：" + historyScore.ToString();
+                default:
+                case Keys.Up:
+                    snakeDirection = DIR_UP;
+                    break;
+                case Keys.Down:
+                    snakeDirection = DIR_DOWN;
+                    break;
+                case Keys.Right:
+                    snakeDirection = DIR_RIGHT;
+                    break;
+                case Keys.Left:
+                    snakeDirection = DIR_LEFT;
+                    break;
             }
         }
 
-        /// <summary>
         /// 重写ProcessDialogKey，允许监听方向键
-        /// </summary>
         protected override bool ProcessDialogKey(Keys keycode)
         {
             switch (keycode)
@@ -132,101 +90,100 @@ namespace DMsGame
             return true;
         }
 
-        /// <summary>  
-        /// 方向键
-        /// </summary>  
-        private void frmSnake_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-                snakeDirection = DIR_UP;
-            else if (e.KeyCode == Keys.Down)
-                snakeDirection = DIR_DOWN;
-            else if (e.KeyCode == Keys.Right)
-                snakeDirection = DIR_RIGHT;
-            else if (e.KeyCode == Keys.Left)
-                snakeDirection = DIR_LEFT;
-        }
+        #endregion
 
-        /// <summary>
         /// 清除画布
-        /// </summary>
         public void ClearScreen()
         {
-            Graphics g = this.pbMain.CreateGraphics();
-            g.Clear(Control.DefaultBackColor); 
+            this.pbMain.CreateGraphics().Clear(Control.DefaultBackColor);   // PictureBox背景色设置默认
         }
 
-        /// <summary>  
-        /// 画一个小方块           
-        /// </summary>  
-        public void DrawShape(int x, int y)
+        /// 画一个小方块
+        public void DrawCube(Graphics g, Point p, Brush b)
         {
-            Graphics g = this.pbMain.CreateGraphics();
-            Pen pen = new Pen(Color.Blue, 2);
-
-            g.DrawRectangle(pen, x, y, 15, 15);
-            g.FillRectangle(Brushes.Green, x, y, 15, 15);
+            g.DrawRectangle(new Pen(Color.Black), p.X, p.Y, 15, 15);
+            g.FillRectangle(b, p.X, p.Y, 15, 15);
         }
 
-        /// <summary>  
-        /// 画一个食物           
-        /// </summary>  
-        public void DrawFood(int x, int y)
+        /// 创建食物随机坐标
+        public void CreateFood()
         {
-            Graphics g = this.pbMain.CreateGraphics();
-            Pen pen = new Pen(Color.Red, 2);
+            Random rd = new Random();
 
-            g.DrawRectangle(pen, x, y, 15, 15);
-            g.FillRectangle(Brushes.Black, x, y, 15, 15);
+            foodLct.X = rd.Next(0, this.pbMain.Width / 15 - 1) * 15;
+            foodLct.Y = rd.Next(0, this.pbMain.Height / 15 - 2) * 15;
         }
 
-        /// <summary>  
-        /// 随机显示食物
-        /// </summary>  
-        public void ShowFood()
+        /// 初始蛇身数组
+        public void Init()
         {
-            int x, y;
-            Random rmd = new Random();
+            int tmp = 0;
+            snakeLen = 6;
+            score = 0;
+            snakeDirection = DIR_RIGHT;                     // 开始时蛇向右移动
 
-            x = rmd.Next(0, this.pbMain.Width / 15 - 1) * 15;
-            y = rmd.Next(0, this.pbMain.Height / 15 - 2) * 15;
+            CreateFood();
 
-            //while (this.CheckInSnakeBody(x, y, 1))   
-            //{            
-            //    x = rmd.Next(0, 32) * 15;    
-            //    y = 32 + rmd.Next(0, 30) * 15;           
-            //}  
+            for (int i = snakeLen - 1; i >= 0; i--)         // 从左上角坐标开始绘制蛇
+            {
+                snakeArr[i].X = tmp;
+                snakeArr[i].Y = 0;
+                tmp += 15;
+            }
 
-            foodLct.X = x;
-            foodLct.Y = y;
-
-            Console.WriteLine("食物坐标是({0},{1})", x, y);
+            this.tDraw.Interval = 1000 / speed;
         }
 
-        /// <summary>  
-        /// 设置Point数组坐标           
-        /// </summary>  
-        public void Forward(int direction)
+        /// 显示蛇和食物
+        public void ShowSnakeFood()
+        {
+            Forward();                                          // 蛇向前移
+            for (int i = 0; i < snakeLen; i++)                  // 绘制蛇身
+                DrawCube(this.pbMain.CreateGraphics(), new Point(snakeArr[i].X, snakeArr[i].Y), Brushes.Green);
+            DrawCube(this.pbMain.CreateGraphics(), new Point(foodLct.X, foodLct.Y), Brushes.Yellow);
+        }
+
+        /// 吃食物
+        public void EatFood()
+        {
+            if (snakeArr[0] == foodLct)                                 // 蛇头点与食物点重合
+            {
+                if (snakeLen < SNAKE_MAX_LENGTH)
+                    snakeArr[snakeLen++] = snakeArr[snakeLen - 1];      // 蛇身长度+1
+
+                this.lScore.Text = "分数：" + (++score).ToString();
+                CreateFood();
+            }
+        }
+
+        /// Game Over
+        public void GameOver()
+        {
+            this.tDraw.Enabled = false;
+            MessageBox.Show("GAME OVER！");
+
+            if (score > historyScore)
+                historyScore = score;
+
+            score = 0;
+            this.lScore.Text = "分数：" + score.ToString();
+            this.lhisScore.Text = "历史最高分：" + historyScore.ToString();
+        }
+
+        /// 蛇身数组前进一单位
+        public void Forward()
         {
             Point temp = snakeArr[0];
 
-            // 相当于实现蛇向前进一单元
             for (int i = snakeLen - 1; i > 0; i--)
-            {
-                snakeArr[i].X = snakeArr[i - 1].X;
-                snakeArr[i].Y = snakeArr[i - 1].Y;
-            }
+                snakeArr[i] = snakeArr[i - 1];              // 蛇身依次向前
 
-            // 蛇头方向重新变化
-            switch (direction)
+            switch (snakeDirection)
             {
+                default:
                 case DIR_UP:
-                    snakeArr[0].X = temp.X; 
+                    snakeArr[0].X = temp.X;                 // 蛇头为指定方向前一单位
                     snakeArr[0].Y = temp.Y - 15; 
-                    break;
-                case DIR_RIGHT:
-                    snakeArr[0].X = temp.X + 15; 
-                    snakeArr[0].Y = temp.Y; 
                     break;
                 case DIR_DOWN: 
                     snakeArr[0].X = temp.X; 
@@ -236,70 +193,33 @@ namespace DMsGame
                     snakeArr[0].X = temp.X - 15; 
                     snakeArr[0].Y = temp.Y; 
                     break; 
+                case DIR_RIGHT:
+                    snakeArr[0].X = temp.X + 15; 
+                    snakeArr[0].Y = temp.Y; 
+                    break;
             }
         }
 
-        /// <summary>  
-        /// 判断是否撞到自己
-        /// </summary>  
-        public bool CheckSnakeHeadInSnakeBody()
+        /// 判断是否咬到自己，头与身子重合
+        public bool IfBiteSelf()
         {
-            return this.CheckInSnakeBody(this.snakeArr[0].X, this.snakeArr[0].Y, 1);
-        }
-
-        /// <summary>  
-        /// 检查输入的坐标是否在蛇的身上
-        /// </summary>  
-        public bool CheckInSnakeBody(int x, int y, int snkHead)
-        {
-            for (int i = snkHead; i < snakeLen; i++)
+            for (int i = 1; i < snakeLen; i++)
             {
-                if (x == this.snakeArr[i].X && y == this.snakeArr[i].Y)
-                {
+                if (snakeArr[0] == this.snakeArr[i])
                     return true;
-                }
             }
+
             return false;
         }
 
-        /// <summary>  
         /// 判断是否撞墙
-        /// </summary>  
-        public bool CheckSnakeBodyInFrm()
+        public bool IfHitWall()
         {
-            if (this.snakeArr[0].X >= this.pbMain.Width ||
-                this.snakeArr[0].Y >= this.pbMain.Height || 
-                this.snakeArr[0].X < 0              || 
-                this.snakeArr[0].Y < 0)
+            if (this.snakeArr[0].X >= this.pbMain.Width || this.snakeArr[0].Y >= this.pbMain.Height || 
+                this.snakeArr[0].X < 0                  || this.snakeArr[0].Y < 0)
                 return true;
             else
                 return false;
-        }
-
-        /// <summary>  
-        /// 判断是否吃到食物
-        /// </summary>  
-        public bool AteFoot(Point FoodLct)
-        {
-            if (snakeArr[0].X == FoodLct.X && snakeArr[0].Y == FoodLct.Y)
-            {
-                if (snakeLen < SNAKE_MAX_LENGTH)
-                {
-                    snakeLen++;
-                    snakeArr[snakeLen].X = snakeArr[snakeLen - 1].X; 
-                    snakeArr[snakeLen].Y = snakeArr[snakeLen - 1].Y;
-                } 
-                return true;
-            }
-            else
-                return false;
-        }
-
-        // 控制蛇的速度
-        private void nudSpeed_ValueChanged(object sender, EventArgs e)
-        {
-            speed = Convert.ToInt32(this.nudSpeed.Value);
-            this.timer1.Interval = 500 / speed;
         }
     }
 }
