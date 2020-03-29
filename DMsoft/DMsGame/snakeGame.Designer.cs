@@ -54,7 +54,7 @@
             // 
             // tDraw
             // 
-            this.tDraw.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tDraw.Tick += new System.EventHandler(this.tDraw_Tick);
             // 
             // pbMain
             // 

@@ -43,9 +43,10 @@ namespace DMsGame
         }
 
         /// 定时器事件
-        private void timer1_Tick(object sender, EventArgs e)
+        private void tDraw_Tick(object sender, EventArgs e)
         {
             ClearScreen();                                      // 清除画面
+            Forward();                                          // 蛇向前移
             ShowSnakeFood();                                    // 显示蛇和食物
             EatFood();                                          // 吃食
 
@@ -101,7 +102,7 @@ namespace DMsGame
         /// 画一个小方块
         public void DrawCube(Graphics g, Point p, Brush b)
         {
-            g.DrawRectangle(new Pen(Color.Black), p.X, p.Y, 15, 15);
+            g.DrawRectangle(new Pen(Color.Black, 2f), p.X, p.Y, 15, 15);
             g.FillRectangle(b, p.X, p.Y, 15, 15);
         }
 
@@ -114,7 +115,7 @@ namespace DMsGame
             foodLct.Y = rd.Next(0, this.pbMain.Height / 15 - 2) * 15;
         }
 
-        /// 初始蛇身数组
+        /// 初始化蛇身数组
         public void Init()
         {
             int tmp = 0;
@@ -137,10 +138,11 @@ namespace DMsGame
         /// 显示蛇和食物
         public void ShowSnakeFood()
         {
-            Forward();                                          // 蛇向前移
+            Console.WriteLine("食物坐标({0}，{1})蛇头坐标({2},{3})", foodLct.X, foodLct.Y, snakeArr[0].X, snakeArr[0].Y);
+
             for (int i = 0; i < snakeLen; i++)                  // 绘制蛇身
                 DrawCube(this.pbMain.CreateGraphics(), new Point(snakeArr[i].X, snakeArr[i].Y), Brushes.Green);
-            DrawCube(this.pbMain.CreateGraphics(), new Point(foodLct.X, foodLct.Y), Brushes.Yellow);
+            DrawCube(this.pbMain.CreateGraphics(), new Point(foodLct.X, foodLct.Y), Brushes.Yellow);    // 绘制食物
         }
 
         /// 吃食物
@@ -149,8 +151,11 @@ namespace DMsGame
             if (snakeArr[0] == foodLct)                                 // 蛇头点与食物点重合
             {
                 if (snakeLen < SNAKE_MAX_LENGTH)
-                    snakeArr[snakeLen++] = snakeArr[snakeLen - 1];      // 蛇身长度+1
-
+                {
+                    snakeArr[snakeLen] = snakeArr[snakeLen - 1];
+                    snakeLen++;                                         // 蛇身长度+1
+                }
+               
                 this.lScore.Text = "分数：" + (++score).ToString();
                 CreateFood();
             }
