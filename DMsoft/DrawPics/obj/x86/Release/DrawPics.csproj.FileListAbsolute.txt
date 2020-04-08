@@ -1,0 +1,8 @@
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\bin\Release\DrawPics.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\bin\Release\DrawPics.pdb
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.MyDraw.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.Properties.Resources.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.Test.MultiLan.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.csproj.GenerateResource.Cache
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\DrawPics\obj\x86\Release\DrawPics.pdb

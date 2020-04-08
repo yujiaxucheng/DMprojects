@@ -7,3 +7,14 @@ D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.Properties.Resou
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.csproj.GenerateResource.Cache
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.exe
 D:\MyGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.pdb
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\bin\Release\TestForm.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\bin\Release\TestForm.pdb
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.C0_TestAllInstance_MainForm.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.defaultForm.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.frmSnake.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.Properties.Resources.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.waitingForm.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.winWeb.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.csproj.GenerateResource.Cache
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\TestForm\obj\x86\Release\TestForm.pdb

@@ -1,0 +1,7 @@
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\bin\Release\Func_MultiLan.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\bin\Release\Func_MultiLan.pdb
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Release\Func_MultiLan.MultiLan.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Release\Func_MultiLan.Properties.Resources.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Release\Func_MultiLan.csproj.GenerateResource.Cache
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Release\Func_MultiLan.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\Func_MultiLan\obj\x86\Release\Func_MultiLan.pdb

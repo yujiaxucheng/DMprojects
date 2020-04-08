@@ -1,0 +1,10 @@
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\bin\Release\CNCneo.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\bin\Release\CNCneo.pdb
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.Tool.MainPage.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.Tool.FSubPage.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.Properties.Resources.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.Test.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.winMain.resources
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.csproj.GenerateResource.Cache
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.exe
+C:\DiskD\myGitHub\DMprojects\DMsoft\CNCneo\obj\x86\Release\CNCneo.pdb
